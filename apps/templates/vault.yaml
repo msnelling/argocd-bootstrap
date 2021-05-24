@@ -6,7 +6,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: system
+  project: bootstrap
   source:
     path: vault
     repoURL: {{ .Values.spec.source.repoURL }}
