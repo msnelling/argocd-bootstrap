@@ -14,3 +14,5 @@ spec:
   destination:
     namespace: argocd
     server: {{ .Values.spec.destination.server }}
+  syncPolicy:
+    automated: {}
