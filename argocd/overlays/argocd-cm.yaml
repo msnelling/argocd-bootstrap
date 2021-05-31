@@ -9,6 +9,13 @@ data:
         jsonPointers:
         - /webhooks/0/clientConfig/caBundle
   configManagementPlugins: |
+    - name: kustomized-helm
+      init:
+        command: ["/bin/sh", "-c"]
+        args: ["helm dependency build"]
+      generate:
+        command: [sh, -c]
+        args: ["helm template --release-name release-name . > all.yaml && kustomize build"]
     - name: argocd-vault-plugin
       generate:
         command: ["argocd-vault-plugin"]
