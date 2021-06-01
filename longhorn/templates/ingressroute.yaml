@@ -12,7 +12,7 @@ spec:
   dnsNames:
   - longhorn.k3s.xmple.io
   issuerRef:
-    name: letsencrypt-production
+    name: letsencrypt-staging
     kind: ClusterIssuer
 ---
 kind: IngressRoute
