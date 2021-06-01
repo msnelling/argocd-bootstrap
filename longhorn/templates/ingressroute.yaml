@@ -1,5 +1,22 @@
-apiVersion: traefik.containo.us/v1alpha1
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: longhorn-dashboard-tls
+  namespace: db3000
+spec:
+  secretName: longhorn-dashboard-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 384
+  dnsNames:
+  - longhorn.k3s.xmple.io
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+---
 kind: IngressRoute
+apiVersion: traefik.containo.us/v1alpha1
 metadata:
   name: longhorn-dashboard
   namespace: longhorn-system
@@ -12,3 +29,8 @@ spec:
       services:
         - name: longhorn-frontend
           port: 80
+  tls:
+    secretName: longhorn-dashboard-tls
+    options:
+      name: mintls13
+      namespace: traefik
