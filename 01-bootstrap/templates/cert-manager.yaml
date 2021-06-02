@@ -11,23 +11,27 @@ kind: Application
 metadata:
   name: cert-manager
   namespace: argocd
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
   syncPolicy:
     automated: {}
     syncOptions:
     - Validate=false
-  ignoreDifferences:
-  - group: apiextensions.k8s.io
-    kind: CustomResourceDefinition
-    jsonPointers:
-    - /status
   destination:
     namespace: cert-manager
     server: {{ .Values.spec.destination.server }}
   source:
     path: cert-manager
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    repoURL: https://charts.jetstack.io
+    targetRevision: v0.15.0
+    helm:
+      parameters:
+      - name: installCRDs
+        value: "true"
+      - name: extraArgs
+        value: "--dns01-recursive-nameservers=1.1.1.1:53\\,1.0.0.1:53"
+  ignoreDifferences:
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    jsonPointers:
+    - /status
