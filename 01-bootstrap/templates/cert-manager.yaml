@@ -10,10 +10,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: cert-manager
+  namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
+  syncPolicy:
+    automated: {}
   destination:
     namespace: cert-manager
     server: {{ .Values.spec.destination.server }}
