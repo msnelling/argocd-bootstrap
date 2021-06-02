@@ -46,3 +46,4 @@ data:
         clientSecret: $dex.github.clientSecret
         orgs:
         - name: xmple
+  admin.enabled: "false"
