@@ -17,6 +17,8 @@ spec:
   project: bootstrap
   syncPolicy:
     automated: {}
+    syncOptions:
+    - Validate=false
   destination:
     namespace: cert-manager
     server: {{ .Values.spec.destination.server }}
