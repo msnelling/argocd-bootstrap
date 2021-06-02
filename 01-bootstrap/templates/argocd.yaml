@@ -1,3 +1,11 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
