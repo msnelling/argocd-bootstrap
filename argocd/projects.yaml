@@ -7,10 +7,14 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   description: Bootstrap Project
-  sourceRepos: []
+  sourceRepos:
+  - https://github.com/msnelling/argocd-bootstrap.git
+  - https://helm.releases.hashicorp.com
+  - https://charts.jetstack.io
+  - https://charts.longhorn.io
   destinations:
-    - namespace: '*'
-      server: https://kubernetes.default.svc
+  - namespace: '*'
+    server: https://kubernetes.default.svc
   clusterResourceWhitelist:
-    - group: '*'
-      kind: '*'
+  - group: '*'
+    kind: '*'
