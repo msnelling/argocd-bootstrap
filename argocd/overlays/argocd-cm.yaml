@@ -35,3 +35,14 @@ data:
     - name: jetstack
       type: helm
       url: https://charts.jetstack.io
+  url: https://argocd.xmple.io
+  dex.config: |
+    connectors:
+    - type: github
+      id: github
+      name: GitHub
+      config:
+        clientID: $dex.github.clientId
+        clientSecret: $dex.github.clientSecret
+        orgs:
+        - name: xmple
