@@ -1,8 +1,0 @@
-vault:
-  server:
-    enabled: false
-  injector:
-    enabled: true
-    externalVaultAddr: https://vault.xmple.io:8200
-  csi:
-    enabled: true

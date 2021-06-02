@@ -21,6 +21,16 @@ spec:
     namespace: vault
     server: {{ .Values.spec.destination.server }}
   source:
-    path: vault
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    chart: vault
+    repoURL: https://helm.releases.hashicorp.com
+    targetRevision: 0.11.0
+    helm:
+      values: |
+        vault:
+          server:
+            enabled: false
+          injector:
+            enabled: true
+            externalVaultAddr: https://vault.xmple.io:8200
+          csi:
+            enabled: true
