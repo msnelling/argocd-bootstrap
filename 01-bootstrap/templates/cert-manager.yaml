@@ -13,7 +13,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: system
+  project: bootstrap
   destination:
     namespace: cert-manager
     server: {{ .Values.spec.destination.server }}
