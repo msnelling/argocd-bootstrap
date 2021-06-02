@@ -21,7 +21,7 @@ spec:
     namespace: cert-manager
     server: {{ .Values.spec.destination.server }}
   source:
-    path: cert-manager
+    chart: cert-manager
     repoURL: https://charts.jetstack.io
     targetRevision: v1.3.1
     helm:
