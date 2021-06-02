@@ -9,5 +9,5 @@ dependencies:
   version: 0.0.22
   repository: https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
 - name: csi-driver-smb
-  version: 0.6.0
+  version: 1.0.0
   repository: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
