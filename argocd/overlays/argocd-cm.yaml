@@ -46,4 +46,4 @@ data:
         clientSecret: $dex.github.clientSecret
         orgs:
         - name: xmple
-  admin.enabled: "false"
+  admin.enabled: "true" # Enable for debugging
