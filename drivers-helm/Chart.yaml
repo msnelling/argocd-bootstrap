@@ -1,0 +1,13 @@
+apiVersion: v2
+name: drivers-helm
+description: Kubernetes drivers
+type: application
+version: 0.1.0
+appVersion: "1.0"
+dependencies:
+- name: secrets-store-csi-driver
+  version: 0.0.22
+  repository: https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
+- name: csi-driver-smb
+  version: 0.6.0
+  repository: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
