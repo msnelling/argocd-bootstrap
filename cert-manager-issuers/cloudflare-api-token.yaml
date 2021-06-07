@@ -1,25 +1,11 @@
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
-kind: SecretProviderClass
+kind: Secret
+apiVersion: v1
 metadata:
   name: cloudflare-api-token
-spec:
-  provider: vault
-  secretObjects:
-  - secretName: cloudflare-api-token
-    type: Opaque
-    data:
-    - key: email
-      objectName: email
-    - key: api_token
-      objectName: api_token
-  parameters:
-    roleName: cert-manager
-    vaultAddress: https://vault.xmple.io:8200
-    vaultSkipTLSVerify: 'true'
-    objects: |
-      - secretPath: "secret/data/cert-manager/letsencrypt/cloudflare"
-        objectName: email
-        secretKey: email
-      - secretPath: "secret/data/cert-manager/letsencrypt/cloudflare"
-        objectName: api_token
-        secretKey: api_token
+  namespace: cert-manager
+  annotations:
+    avp.kubernetes.io/path: secret/data/cert-manager/letsencrypt/cloudflare
+type: Opaque
+data:
+  email: <email | base64encode>
+  api_token: <api_token | base64encode>
