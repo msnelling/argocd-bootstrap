@@ -33,3 +33,4 @@ spec:
           externalVaultAddr: https://vault.xmple.io:8200
         csi:
           enabled: true
+          debug: true
