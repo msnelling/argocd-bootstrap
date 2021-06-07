@@ -25,11 +25,20 @@ spec:
     repoURL: https://charts.jetstack.io
     targetRevision: v1.3.1
     helm:
-      parameters:
-      - name: installCRDs
-        value: "true"
-      - name: extraArgs
-        value: "{--dns01-recursive-nameservers=1.1.1.1:53\\,1.0.0.1:53}"
+#      parameters:
+#      - name: installCRDs
+#        value: "true"
+#      - name: extraArgs
+#        value: "{--dns01-recursive-nameservers=1.1.1.1:53\\,1.0.0.1:53}"
+      values: |
+        installCRDs: "true"
+        extraArgs:
+        - --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53
+        tolerations:
+        - key: node-role.kubernetes.io/master
+          operator: Equal
+          value: master
+          effect: NoSchedule
   ignoreDifferences:
   - group: apiextensions.k8s.io
     kind: CustomResourceDefinition
