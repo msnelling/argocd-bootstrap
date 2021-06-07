@@ -4,6 +4,7 @@ namespace: argocd
 bases:
 - github.com/argoproj/argo-cd//manifests/cluster-install?ref=v2.0.3
 resources:
+- projects.yaml
 - ui-ingress.yaml
 - vault-plugin-credentials.yaml
 - external-secrets.yaml
