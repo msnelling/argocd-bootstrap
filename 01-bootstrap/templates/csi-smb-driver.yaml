@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: csi-smb-driver
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: bootstrap
+  syncPolicy:
+    automated: {}
+  destination:
+    namespace: kube-system
+    server: {{ .Values.spec.destination.server }}
+  source:
+    chart: csi-driver-smb
+    repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+    targetRevision: 1.0.0
