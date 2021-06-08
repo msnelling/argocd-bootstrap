@@ -15,7 +15,7 @@ data:
         args: ["helm dependency build"]
       generate:
         command: [sh, -c]
-        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE . > all.yaml && kustomize build"]
+        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE --include-crds . > all.yaml && kustomize build"]
     - name: argocd-vault-plugin
       generate:
         command: ["argocd-vault-plugin"]
@@ -26,7 +26,7 @@ data:
         args: ["helm dependency build"]
       generate:
         command: ["sh", "-c"]
-        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE . > all.yaml && argocd-vault-plugin generate all.yaml"]
+        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE --include-crds . > all.yaml && argocd-vault-plugin generate all.yaml"]
     - name: argocd-vault-plugin-kustomize
       generate:
         command: ["sh", "-c"]

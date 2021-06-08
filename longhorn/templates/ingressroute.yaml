@@ -3,7 +3,6 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: longhorn-dashboard-tls
-  namespace: longhorn-system
 spec:
   secretName: longhorn-dashboard-tls
   privateKey:
@@ -19,7 +18,6 @@ kind: IngressRoute
 apiVersion: traefik.containo.us/v1alpha1
 metadata:
   name: longhorn-dashboard
-  namespace: longhorn-system
 spec:
   entryPoints:
     - websecure
