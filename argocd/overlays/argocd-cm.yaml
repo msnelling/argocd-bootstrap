@@ -15,7 +15,7 @@ data:
         args: ["helm dependency build"]
       generate:
         command: [sh, -c]
-        args: ["helm template --release-name release-name . > all.yaml && kustomize build"]
+        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE . > all.yaml && kustomize build"]
     - name: argocd-vault-plugin
       generate:
         command: ["argocd-vault-plugin"]
@@ -26,18 +26,11 @@ data:
         args: ["helm dependency build"]
       generate:
         command: ["sh", "-c"]
-        args: ["helm template . > all.yaml && argocd-vault-plugin generate all.yaml"]
+        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE . > all.yaml && argocd-vault-plugin generate all.yaml"]
     - name: argocd-vault-plugin-kustomize
       generate:
         command: ["sh", "-c"]
         args: ["kustomize build . > all.yaml && argocd-vault-plugin generate all.yaml"]
-  repositories: |
-    - name: traefik
-      type: helm
-      url: https://helm.traefik.io/traefik
-    - name: jetstack
-      type: helm
-      url: https://charts.jetstack.io
   url: https://argocd.xmple.io
   dex.config: |
     connectors:
