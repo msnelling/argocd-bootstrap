@@ -1,0 +1,3 @@
+defaultSettings:
+  backupTarget: s3://longhorn@home/
+  backupTargetCredentialSecret: s3-secret
