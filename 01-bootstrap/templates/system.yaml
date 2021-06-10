@@ -31,10 +31,11 @@ spec:
     path: 02-system
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
-    values: |
-      spec:
-        destination:
-          server: {{ .Values.spec.destination.server }}
-        source:
-          repoURL: {{ .Values.spec.source.repoURL }}
-          targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      values: |
+        spec:
+          destination:
+            server: {{ .Values.spec.destination.server }}
+          source:
+            repoURL: {{ .Values.spec.source.repoURL }}
+            targetRevision: {{ .Values.spec.source.targetRevision }}
