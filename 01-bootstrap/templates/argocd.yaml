@@ -15,8 +15,8 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
-  syncPolicy:
-    automated: {}
+#  syncPolicy:
+#    automated: {}
   destination:
     namespace: argocd
     server: {{ .Values.spec.destination.server }}
