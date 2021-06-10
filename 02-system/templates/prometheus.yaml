@@ -15,6 +15,6 @@ spec:
     targetRevision: 16.6.2
 #    helm:
 #      values: |
-syncPolicy:
-  syncOptions:
-  - CreateNamespace=true
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
