@@ -31,13 +31,6 @@ data:
       generate:
         command: ["sh", "-c"]
         args: ["kustomize build . > all.yaml && argocd-vault-plugin generate all.yaml"]
-    - name: argocd-vault-plugin-kustomize-test
-      init:
-        command: ["/bin/sh", "-c"]
-        args: ["kustomize build . > all.yaml"]
-      generate:
-        command: ["sh", "-c"]
-        args: ["argocd-vault-plugin generate all.yaml"]
   url: https://argocd.xmple.io
   dex.config: |
     connectors:
