@@ -7,14 +7,12 @@ metadata:
 spec:
   project: system
   destination:
-    namespace: prometheus
+    namespace: monitoring
     server: {{ .Values.spec.destination.server }}
   source:
     chart: kube-prometheus-stack
     repoURL: https://prometheus-community.github.io/helm-charts
     targetRevision: 16.6.2
-#    helm:
-#      values: |
   syncPolicy:
     syncOptions:
     - CreateNamespace=true

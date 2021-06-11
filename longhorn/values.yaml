@@ -1,4 +1,5 @@
 longhorn:
   defaultSettings:
+    defaultReplicaCount: 2
     backupTarget: s3://longhorn@home/
     backupTargetCredentialSecret: s3-secret
