@@ -7,8 +7,6 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
-  syncPolicy:
-    automated: {}
   destination:
     namespace: cert-manager
     server: {{ .Values.spec.destination.server }}
@@ -18,3 +16,5 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
     plugin: 
       name: argocd-vault-plugin-kustomize
+  syncPolicy:
+    automated: {}

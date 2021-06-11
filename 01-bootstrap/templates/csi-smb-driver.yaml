@@ -7,8 +7,6 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
-  syncPolicy:
-    automated: {}
   destination:
     namespace: kube-system
     server: {{ .Values.spec.destination.server }}
@@ -16,3 +14,5 @@ spec:
     chart: csi-driver-smb
     repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
     targetRevision: 1.0.0
+  syncPolicy:
+    automated: {}
