@@ -28,3 +28,8 @@ spec:
     - kind: Service
       name: prometheus-grafana
       port: 80
+  tls:
+    secretName: grafana-tls
+    options:
+      name: mintls13
+      namespace: traefik
