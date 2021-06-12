@@ -9,30 +9,9 @@ spec:
     namespace: monitoring
     server: {{ .Values.spec.destination.server }}
   source:
-    chart: kube-prometheus-stack
-    repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 16.7.0
-    helm:
-      values: |
-        grafana:
-          grafana.ini:
-            server:
-              #domain: monitor.k3s.xmple.io
-              root_url: https://monitor.k3s.xmple.io/grafana
-              #serve_from_sub_path: true
-          ingress:
-            enabled: true
-            annotations:
-              traefik.ingress.kubernetes.io/router.entrypoints: websecure
-              traefik.ingress.kubernetes.io/router.tls: "true"
-              cert-manager.io/cluster-issuer: letsencrypt-production
-            hosts:
-            - monitor.k3s.xmple.io
-            path: /grafana
-            tls:
-            - secretName: grafana-tls
-              hosts:
-              - monitor.k3s.xmple.io
+    path: prometheus
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
