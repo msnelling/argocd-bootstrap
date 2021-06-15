@@ -12,7 +12,7 @@ spec:
   dnsNames:
   - argocd.xmple.io
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-production
     kind: ClusterIssuer
 ---
 apiVersion: traefik.containo.us/v1alpha1
