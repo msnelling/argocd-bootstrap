@@ -1,8 +1,7 @@
-kind: Secret
 apiVersion: v1
+kind: Secret
 metadata:
   name: cloudflare-api-token
-  namespace: cert-manager
   annotations:
     avp.kubernetes.io/path: secret/data/k3s/cloudflare/cert-manager/issuer
 type: Opaque
