@@ -4,8 +4,8 @@ metadata:
   name: cloudflare-api-token
   namespace: cert-manager
   annotations:
-    avp.kubernetes.io/path: secret/data/cert-manager/letsencrypt/cloudflare
+    avp.kubernetes.io/path: secret/data/k3s/cloudflare/cert-manager/issuer
 type: Opaque
 data:
-  email: <email | base64encode>
+  #email: <email | base64encode>
   api-token: <api_token | base64encode>
