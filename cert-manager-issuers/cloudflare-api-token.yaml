@@ -6,5 +6,4 @@ metadata:
     avp.kubernetes.io/path: secret/data/k3s/cloudflare/cert-manager/issuer
 type: Opaque
 data:
-  #email: <email | base64encode>
   api-token: <api-token | base64encode>
