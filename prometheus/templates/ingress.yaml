@@ -2,7 +2,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: grafana-tls
+  name: monitoring-tls
 spec:
   secretName: monitoring-tls
   privateKey:
