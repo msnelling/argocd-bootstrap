@@ -18,3 +18,5 @@ spec:
       name: argocd-vault-plugin-kustomize
   syncPolicy:
     automated: {}
+    syncOptions:
+    - CreateNamespace=true
