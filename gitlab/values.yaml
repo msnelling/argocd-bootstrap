@@ -1,4 +1,4 @@
-gitlab-stack:
+gitlab:
   global:
     hosts:
       domain: xmple.io
@@ -42,12 +42,12 @@ gitlab-stack:
         enabled: true
         providers:
         - secret: gitlab-github-oauth2
-        #- secret: gitlab-cloudflare-oauth2
   gitlab:
     gitaly:
       persistence:
         volumeName: gitlab-gitaly
     task-runner:
+      enabled: false # Temporarily disabled
       backups:
         objectStorage:
           config:
@@ -69,6 +69,7 @@ gitlab-stack:
       persistence:
         volumeName: gitlab-redis-master
   gitlab-runner:
+    install: false # Temporarily disabled
     runners:
       privileged: true
   nginx-ingress:
