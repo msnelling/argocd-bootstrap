@@ -1,10 +1,10 @@
 apiVersion: v2
-name: gitlab
+name: gitlab-stack
 description: Web-based Git-repository manager
 type: application
 version: 0.1.0
 appVersion: "14.0"
 dependencies:
-- name: gitlab-stack
+- name: gitlab
   version: 5.0.5
   repository: https://charts.gitlab.io/
