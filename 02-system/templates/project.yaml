@@ -10,6 +10,7 @@ spec:
   sourceRepos:
   - {{ .Values.spec.source.repoURL }}
   - https://prometheus-community.github.io/helm-charts
+  - https://charts.gitlab.io/
   destinations:
   - namespace: '*'
     server: {{ .Values.spec.destination.server }}
