@@ -5,6 +5,6 @@ type: application
 version: 0.1.0
 appVersion: "14.0"
 dependencies:
-- name: gitlab
+- name: gitlab-stack
   version: 5.0.5
   repository: https://charts.gitlab.io/

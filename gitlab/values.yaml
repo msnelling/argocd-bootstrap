@@ -1,4 +1,4 @@
-gitlab:
+gitlab-stack:
   global:
     hosts:
       domain: xmple.io
