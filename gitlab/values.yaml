@@ -16,7 +16,6 @@ gitlab:
       enabled: true
       address: smtp.fastmail.com
       port: 465
-      tls: true
       starttls_auto: true
       user_name: mark@bakedbeans.com 
       password:
