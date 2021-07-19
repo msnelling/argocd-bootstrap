@@ -12,6 +12,8 @@ spec:
     path: gitlab
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
+    plugin: 
+      name: argocd-vault-plugin-helm
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
