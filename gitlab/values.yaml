@@ -12,14 +12,17 @@ gitlab:
         secretName: gitlab-tls
     email:
       from: GitLab@xmple.io
+      reply_to: noreply@xmple.io
     smtp:
       enabled: true
       address: smtp.fastmail.com
       port: 465
       starttls_auto: true
+      tls: true
       user_name: mark@bakedbeans.com 
       password:
         secret: smtp-password
+        key: password
     minio:
       enabled: false
     registry:
