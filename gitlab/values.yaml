@@ -12,6 +12,7 @@ gitlab:
         secretName: gitlab-tls
     email:
       from: GitLab@xmple.io
+      display_name: "GitLab"
       reply_to: noreply@xmple.io
     smtp:
       enabled: true
@@ -19,6 +20,7 @@ gitlab:
       port: 465
       starttls_auto: true
       tls: true
+      domain: xmple.io
       user_name: mark@bakedbeans.com 
       password:
         secret: smtp-password
