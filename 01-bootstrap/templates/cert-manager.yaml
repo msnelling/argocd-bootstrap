@@ -11,12 +11,12 @@ spec:
   source:
     chart: cert-manager
     repoURL: https://charts.jetstack.io
-    targetRevision: v1.4.3
+    targetRevision: v1.5.0
     helm:
       values: |
         installCRDs: "true"
-        extraArgs:
-        - --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53
+        #extraArgs:
+        #- --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53
         nodeSelector:
           node-role.kubernetes.io/master: 'true'
         tolerations:
