@@ -21,7 +21,7 @@ gitlab:
       starttls_auto: true
       tls: true
       domain: xmple.io
-      user_name: mark@bakedbeans.com
+      user_name: mark@bakedbeans.com 
       password:
         secret: smtp-password
         key: password
