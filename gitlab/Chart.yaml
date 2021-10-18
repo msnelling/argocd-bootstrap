@@ -3,7 +3,7 @@ name: gitlab-stack
 description: Web-based Git-repository manager
 type: application
 version: 0.1.0
-appVersion: "14.1"
+appVersion: "14.2"
 dependencies:
 - name: gitlab
   version: 5.2.0
