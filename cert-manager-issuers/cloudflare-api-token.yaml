@@ -7,3 +7,24 @@ metadata:
 type: Opaque
 data:
   api-token: <api-token | base64encode>
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: cloudflare-api-token
+spec:
+  refreshInterval: "15s"
+  secretStoreRef:
+    name: vault-backend
+    kind: SecretStore
+  target:
+    name: cloudflare-api-token-test
+    template:
+      type: Opaque
+      data:
+        api-token: "{{ .token }}"
+  data:
+    - secretKey: token
+      remoteRef:
+        key: secret/k3s/cloudflare/cert-manager/issuer
+        property: api-token
