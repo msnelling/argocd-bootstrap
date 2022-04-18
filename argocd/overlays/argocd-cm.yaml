@@ -21,21 +21,6 @@ data:
       generate:
         command: [sh, -c]
         args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE --include-crds . > all.yaml && kustomize build"]
-    - name: argocd-vault-plugin
-      generate:
-        command: ["argocd-vault-plugin"]
-        args: ["generate", "./"]
-    - name: argocd-vault-plugin-helm
-      init:
-        command: ["/bin/sh", "-c"]
-        args: ["helm dependency build"]
-      generate:
-        command: ["/bin/sh", "-c"]
-        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE --include-crds . > all.yaml && argocd-vault-plugin generate all.yaml"]
-    - name: argocd-vault-plugin-kustomize
-      generate:
-        command: ["/bin/sh", "-c"]
-        args: ["kustomize build . > all.yaml && argocd-vault-plugin generate all.yaml"]
   url: https://argocd.xmple.io
   dex.config: |
     connectors:
