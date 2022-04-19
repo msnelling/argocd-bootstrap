@@ -4,5 +4,5 @@ bases:
   - github.com/adyanth/cloudflare-operator.git//config/default?ref=v0.4.1
 resources:
   - secret-store.yaml
-  - cloudflare-api-token.yaml
+  - cloudflare-secrets.yaml
   - cluster-tunnels.yaml
