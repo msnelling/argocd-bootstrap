@@ -8,7 +8,7 @@ metadata:
 spec:
   project: bootstrap
   destination:
-    namespace: cloudflare
+    namespace: cloudflare-operator-system
     server: {{ .Values.spec.destination.server }}
   source:
     path: cloudflare-tunnel
