@@ -1,0 +1,13 @@
+apiVersion: networking.cfargotunnel.com/v1alpha1
+kind: ClusterTunnel
+metadata:
+  name: k3s-xmple-io-tunnel
+spec:
+  newTunnel:
+    name: k3s-xmple-io-tunnel
+  size: 2
+  cloudflare:
+    email: mark@bakedbeans.com
+    domain: xmple.io
+    secret: cloudflare-secrets
+    accountId: 065a96268bda7d23d4cce358077e04f1
