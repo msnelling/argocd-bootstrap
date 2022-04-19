@@ -10,4 +10,5 @@ spec:
     email: mark@bakedbeans.com
     domain: xmple.io
     secret: cloudflare-secrets
-    accountId: 065a96268bda7d23d4cce358077e04f1
+    accountId: '065a96268bda7d23d4cce358077e04f1'
+    accountName: Bakedbeans Software
