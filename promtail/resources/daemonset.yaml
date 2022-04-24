@@ -35,7 +35,6 @@ spec:
             - containerPort: 3101
               name: http-metrics
               protocol: TCP
-          livenessProbe: {}
           readinessProbe:
             failureThreshold: 5
             httpGet:
