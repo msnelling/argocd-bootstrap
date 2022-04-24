@@ -13,6 +13,11 @@ spec:
     spec:
       serviceAccount: grafana
       serviceAccountName: grafana
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+          operator: Equal
+          value: 'true'
       containers:
         - name: promtail-container
           image: grafana/promtail
