@@ -5,8 +5,8 @@ metadata:
 data:
   promtail.yaml: |
     server:
-      http_listen_port: 0
-      grpc_listen_port: 0
+      log_level: info
+      http_listen_port: 3101
 
     positions:
       filename: /run/promtail/positions.yaml
