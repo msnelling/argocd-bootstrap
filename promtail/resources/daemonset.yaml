@@ -30,9 +30,14 @@ spec:
                 fieldRef:
                   fieldPath: spec.nodeName
           volumeMounts:
-            - name: promtail-config
+            - name: config
               mountPath: /etc/promtail
+            - name: run
+              mountPath: /run/promtail
       volumes:
-        - name: promtail-config
+        - name: config
           secret:
             secretName: promtail-config
+        - name: run
+          hostPath:
+            path: /run/promtail
