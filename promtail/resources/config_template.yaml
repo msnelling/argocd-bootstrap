@@ -40,3 +40,42 @@ data:
             regex: ^;*([^;]+)(;.*)?$
             action: replace
             target_label: component
+          - source_labels:
+              - __meta_kubernetes_pod_node_name
+            action: replace
+            target_label: node_name
+          - source_labels:
+              - __meta_kubernetes_namespace
+            action: replace
+            target_label: namespace
+          - source_labels:
+              - namespace
+              - app
+            action: replace
+            replacement: $1
+            separator: /
+            target_label: job
+          - source_labels:
+              - __meta_kubernetes_pod_name
+            action: replace
+            target_label: pod
+          - source_labels:
+              - __meta_kubernetes_pod_container_name
+            action: replace
+            target_label: container
+          - source_labels:
+              - __meta_kubernetes_pod_uid
+              - __meta_kubernetes_pod_container_name
+            action: replace
+            replacement: /var/log/pods/*$1/*.log
+            separator: /
+            target_label: __path__
+          - source_labels:
+              - __meta_kubernetes_pod_annotationpresent_kubernetes_io_config_hash
+              - __meta_kubernetes_pod_annotation_kubernetes_io_config_hash
+              - __meta_kubernetes_pod_container_name
+            action: replace
+            replacement: /var/log/pods/*$1/*.log
+            regex: true/(.*)
+            separator: /
+            target_label: __path__

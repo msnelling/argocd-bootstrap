@@ -19,7 +19,7 @@ spec:
           operator: Equal
           value: 'true'
       containers:
-        - name: promtail-container
+        - name: promtail
           image: grafana/promtail
           imagePullPolicy: Always
           args:
