@@ -6,7 +6,7 @@ metadata:
 spec:
   project: system
   destination:
-    namespace: monitoring
+    namespace: grafana
     server: {{ .Values.spec.destination.server }}
   source:
     path: promtail
