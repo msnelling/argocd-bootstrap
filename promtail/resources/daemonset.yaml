@@ -11,8 +11,8 @@ spec:
       labels:
         name: promtail
     spec:
-      serviceAccount: grafana
-      serviceAccountName: grafana
+      serviceAccount: promtail
+      serviceAccountName: promtail
       tolerations:
         - key: node-role.kubernetes.io/master
           effect: NoSchedule
