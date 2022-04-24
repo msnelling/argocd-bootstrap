@@ -11,13 +11,15 @@ spec:
       labels:
         name: promtail
     spec:
-      serviceAccount: promtail
       serviceAccountName: promtail
       tolerations:
         - key: node-role.kubernetes.io/master
           effect: NoSchedule
           operator: Equal
           value: 'true'
+      podSecurityContext:
+        runAsUser: 0
+        runAsGroup: 0
       containers:
         - name: promtail
           image: grafana/promtail
@@ -29,11 +31,34 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
+          ports:
+            - containerPort: 3101
+              name: http-metrics
+              protocol: TCP
+          livenessProbe: {}
+          readinessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: /ready
+              port: http-metrics
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
           volumeMounts:
             - name: config
               mountPath: /etc/promtail
             - name: run
               mountPath: /run/promtail
+            - name: pods
+              mountPath: /var/log/pods
+              readOnly: true
       volumes:
         - name: config
           secret:
@@ -41,3 +66,6 @@ spec:
         - name: run
           hostPath:
             path: /run/promtail
+        - name: pods
+          hostPath:
+            path: /var/log/pods
