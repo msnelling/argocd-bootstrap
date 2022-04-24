@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: promtail
+spec:
+  selector:
+    matchLabels:
+      name: promtail
+  template:
+    metadata:
+      labels:
+        name: promtail
+    spec:
+      serviceAccount: grafana
+      serviceAccountName: grafana
+      containers:
+        - name: promtail-container
+          image: grafana/promtail
+          imagePullPolicy: Always
+          args:
+            - -config.file=/etc/promtail/promtail.yaml
+          env: 
+            - name: HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: promtail-config
+              mountPath: /etc/promtail
+      volumes:
+        - name: promtail-config
+          secret:
+            secretName: promtail-config
