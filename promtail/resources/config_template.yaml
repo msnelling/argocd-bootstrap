@@ -9,7 +9,7 @@ data:
       grpc_listen_port: 0
 
     positions:
-      filename: /run/positions.yaml
+      filename: /run/promtail/positions.yaml
 
     client:
       url: https://{{ .user }}:{{ .apiKey }}@logs-prod-eu-west-0.grafana.net/loki/api/v1/push
