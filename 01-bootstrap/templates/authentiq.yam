@@ -9,7 +9,7 @@ spec:
     namespace: authentiq
     server: {{ .Values.spec.destination.server }}
   source:
-    chart: cert-manager
+    chart: authentik
     repoURL: https://charts.goauthentik.io
     targetRevision: 2022.4.1
     helm:
