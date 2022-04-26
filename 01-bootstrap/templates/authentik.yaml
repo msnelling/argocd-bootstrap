@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: authentiq
+  name: authentik
   namespace: argocd
 spec:
   project: bootstrap
   destination:
-    namespace: authentiq
+    namespace: authentik
     server: {{ .Values.spec.destination.server }}
   source:
     chart: authentik
