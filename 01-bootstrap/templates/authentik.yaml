@@ -24,9 +24,9 @@ spec:
           enabled: true
           hosts:
             - host: authentik.xmple.io
-                paths:
-                  - path: "/"
-                pathType: Prefix
+              paths:
+                - path: "/"
+                  pathType: Prefix
         postgresql:
           enabled: true
           postgresqlPassword: "ThisIsNotASecurePassword"
