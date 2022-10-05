@@ -3,6 +3,7 @@ kind: Kustomization
 bases:
   - github.com/adyanth/cloudflare-operator.git//config/default?ref=v0.8.2
 resources:
+  - service-account-token.yaml
   - secret-store.yaml
   - cloudflare-secrets.yaml
   - cluster-tunnels.yaml
