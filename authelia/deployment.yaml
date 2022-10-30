@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authelia
+  labels:
+    app.kubernetes.io/name: authelia
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: authelia
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: authelia
+    spec:
+      enableServiceLinks: false
+      containers:
+        - name: authelia
+          image: ghcr.io/authelia/authelia:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 9091
+          envFrom:
+            - secretRef:
+                name: authelia-secrets
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+            - name: dbvolume
+              mountPath: /var/lib/authelia
+          resources:
+            limits: 
+              cpu: "4"
+              memory: 125Mi
+            requests:
+              cpu: "0.25"
+              memory: 50Mi
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+              scheme: HTTP
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: http
+              scheme: HTTP
+      volumes:
+        - name: dbvolume
+          persistentVolumeClaim:
+            claimName: authelia-db
+        - name: config-volume
+          configMap:
+            name: authelia-config
+            items:
+              - key: configuration.yml
+                path: configuration.yml
+              - key: users.yaml
+                path: users.yaml

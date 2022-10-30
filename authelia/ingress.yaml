@@ -1,0 +1,20 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: authelia
+  labels:
+    app.kubernetes.io/name: authelia
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`auth.xmple.io`)
+      kind: Rule
+      services:
+        - name: authelia
+          port: 80
+  tls:
+    secretName: authelia-tls
+    options:
+      name: mintls13
+      namespace: traefik

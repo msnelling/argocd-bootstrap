@@ -1,0 +1,9 @@
+users:
+  mark:
+    disabled: false
+    displayname: Mark Snelling
+    email: mark@bakedbeans.com
+    password: "$6$rounds=50000$qJDaB3kCP/evZ6mF$6v0zSmzPg3o3lN7dShbtJ2slwLqjlEIu04FU55ydE2/4lOqWasuV1tJD0fSVeEi9bnxMnVcLmG3GLKFKtD0VM."
+    groups:
+      - admin
+      - db3000

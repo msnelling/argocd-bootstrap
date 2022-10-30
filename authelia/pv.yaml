@@ -1,0 +1,32 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: authelia-db
+  labels:
+    app.kubernetes.io/name: authelia
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn-authelia
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: authelia-db
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: authelia-db
+  labels:
+    app.kubernetes.io/name: authelia
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: authelia-db
+  storageClassName: longhorn-authelia
