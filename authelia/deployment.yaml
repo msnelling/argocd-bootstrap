@@ -20,7 +20,7 @@ spec:
       enableServiceLinks: false
       containers:
         - name: authelia
-          image: ghcr.io/authelia/authelia:latest
+          image: docker.io/authelia/authelia:latest
           imagePullPolicy: Always
           ports:
             - name: http
