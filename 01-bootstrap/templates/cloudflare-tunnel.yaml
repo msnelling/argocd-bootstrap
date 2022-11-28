@@ -3,12 +3,12 @@ kind: Application
 metadata:
   name: cloudflare-tunnel
   namespace: argocd
-#  finalizers:
-#    - resources-finalizer.argocd.argoproj.io
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
   destination:
-    namespace: cloudflare-operator-system
+    namespace: cloudflare
     server: {{ .Values.spec.destination.server }}
   source:
     path: cloudflare-tunnel
