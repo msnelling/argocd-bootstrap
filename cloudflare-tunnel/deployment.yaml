@@ -46,6 +46,7 @@ spec:
               path: /ready
               port: metrics
               scheme: HTTP
+            initialDelaySeconds: 10
           resources:
             limits:
               cpu: '1'
