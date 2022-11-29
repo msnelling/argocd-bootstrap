@@ -8,7 +8,7 @@ spec:
   revisionHistoryLimit: 2
   replicas: 2
   strategy:
-    type: Recreate
+    type: Ro
   selector:
     matchLabels:
       app.kubernetes.io/name: cloudflare-tunnel
@@ -26,7 +26,7 @@ spec:
           args:
             - tunnel
             - --no-autoupdate
-            - --metrics=localhost:9090
+            - --metrics=0.0.0.0:9090
             - run
           envFrom:
             - secretRef:
