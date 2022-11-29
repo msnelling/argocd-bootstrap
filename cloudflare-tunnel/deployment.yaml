@@ -26,10 +26,26 @@ spec:
           args:
             - tunnel
             - --no-autoupdate
+            - --metrics=localhost:9090
             - run
           envFrom:
             - secretRef:
                 name: cloudflare-tunnel
+          ports:
+            - name: metrics
+              containerPort: 9090
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /ready
+              port: metrics
+              scheme: HTTP
+            initialDelaySeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: metrics
+              scheme: HTTP
           resources:
             limits:
               cpu: '1'
