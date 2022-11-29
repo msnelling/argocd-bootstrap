@@ -9,6 +9,8 @@ spec:
   revisionHistoryLimit: 2
   strategy:
     type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
   selector:
     matchLabels:
       app.kubernetes.io/name: cloudflare-tunnel
