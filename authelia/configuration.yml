@@ -341,10 +341,10 @@ notifier:
   ## filesystem:
   ##   filename: /tmp/authelia/notification.txt
   smtp:
-    username: mark@bakedbeans.com
+    username: masnelling@icloud.com
     # This secret can also be set using the env variables AUTHELIA_NOTIFIER_SMTP_PASSWORD
     #password: password
-    host: smtp.fastmail.com   
-    port: 465
+    host: smtp.mail.me.com
+    port: 587
     sender: authelia@xmple.io
     subject: "[Authelia] {title}"
