@@ -346,5 +346,5 @@ notifier:
     #password: password
     host: smtp.mail.me.com
     port: 587
-    sender: authelia@xmple.io
+    sender: db3000@xmple.io
     subject: "[Authelia] {title}"
