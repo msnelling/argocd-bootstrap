@@ -9,7 +9,7 @@ spec:
     algorithm: ECDSA
     size: 384
   dnsNames:
-  - monitor.k3s.xmple.io
+    - monitor.k3s.xmple.io
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
@@ -20,14 +20,14 @@ metadata:
   name: grafana
 spec:
   entryPoints:
-  - websecure
+    - websecure
   routes:
-  - match: Host(`monitor.k3s.xmple.io`) && (PathPrefix(`/grafana`))
-    kind: Rule
-    services:
-    - kind: Service
-      name: prometheus-grafana
-      port: 80
+    - match: Host(`monitor.k3s.xmple.io`) && (PathPrefix(`/grafana`))
+      kind: Rule
+      services:
+        - kind: Service
+          name: prometheus-grafana
+          port: 80
   tls:
     secretName: monitoring-tls
     options:
