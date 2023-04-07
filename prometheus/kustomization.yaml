@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+helmCharts:
+  - name: kube-prometheus-stack
+    repo: https://prometheus-community.github.io/helm-charts
+    releaseName: prometheus
+    version: 45.9.1
+    includeCRDs: true
+    valuesFile: values.yaml
+
+resources:
+  - resources/ingress.yaml
+
+patchesJson6902:
+  - target:
+      group: apiextensions.k8s.io
+      version: v1
+      kind: CustomResourceDefinition
+      name: prometheuses.monitoring.coreos.com
+    patch: |-
+      - op: add
+        path: "/metadata/annotations/argocd.argoproj.io~1sync-options"
+        value: "Replace=true"
