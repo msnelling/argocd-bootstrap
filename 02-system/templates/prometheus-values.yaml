@@ -1,0 +1,15 @@
+kubeEtcd:
+  enabled: true
+kubeControllerManager:
+  enabled: true
+kubeScheduler:
+  enabled: true
+
+grafana:
+  plugins:
+    - grafana-piechart-panel
+  grafana.ini:
+    server:
+      domain: monitor.k3s.xmple.io
+      root_url: https://monitor.k3s.xmple.io/grafana
+      serve_from_sub_path: true

@@ -4,16 +4,16 @@ metadata:
   name: system
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   description: System Project
   sourceRepos:
-  - {{ .Values.spec.source.repoURL }}
-  - https://prometheus-community.github.io/helm-charts
-  - https://charts.gitlab.io/
+    - {{ .Values.spec.source.repoURL }}
+    - https://prometheus-community.github.io/helm-charts
+    - https://charts.gitlab.io/
   destinations:
-  - namespace: '*'
-    server: {{ .Values.spec.destination.server }}
+    - namespace: '*'
+      server: {{ .Values.spec.destination.server }}
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'
