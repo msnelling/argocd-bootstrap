@@ -12,4 +12,3 @@ grafana:
     server:
       domain: monitor.k3s.xmple.io
       root_url: https://monitor.k3s.xmple.io/grafana
-      serve_from_sub_path: true
