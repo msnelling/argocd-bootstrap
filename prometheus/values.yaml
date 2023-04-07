@@ -6,9 +6,8 @@ kubeScheduler:
   enabled: false
   
 grafana:
-  plugins:
-    - grafana-piechart-panel
   grafana.ini:
     server:
       domain: grafana.k3s.xmple.io
-      root_url: '%(protocol)s://%(domain)s:%(http_port)s'
+  plugins:
+    - grafana-piechart-panel
