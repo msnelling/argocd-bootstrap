@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: system
+  name: applications
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: System Project
+  description: Applications Project
   sourceRepos:
     - {{ .Values.spec.source.repoURL }}
-    - https://prometheus-community.github.io/helm-charts
+    - https://charts.gitlab.io/
   destinations:
     - namespace: '*'
       server: {{ .Values.spec.destination.server }}
