@@ -4,7 +4,7 @@ metadata:
   name: gitlab-test
 spec:
   chart:
-    version: "~6.0.2" # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0.8.1/CHART_VERSIONS
+    version: "6.0.2" # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0.8.1/CHART_VERSIONS
     values:
       global:
         hosts:
