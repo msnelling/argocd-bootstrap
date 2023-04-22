@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gitlab-tls
+  labels:
+    app.kubernetes.io/name: gitlab
+spec:
+  secretName: gitlab-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 384
+  dnsNames:
+    - gitlab.xmple.io
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
