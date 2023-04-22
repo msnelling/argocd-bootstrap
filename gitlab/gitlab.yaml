@@ -29,7 +29,7 @@ spec:
             enabled: true
             secretName: gitlab-tls
         initialRootPassword:
-          secret: gitlab-gitlab-initial-root-password
+          secret: gitlab-initial-root-password
           key: password
         email:
           from: GitLab@xmple.io
@@ -42,7 +42,7 @@ spec:
           starttls_auto: true
           tls: true
           domain: xmple.io
-          user_name: gitlab@xmple.io
+          user_name: masnelling@icloud.com
           password:
             secret: smtp-password
             key: password
@@ -111,7 +111,7 @@ spec:
             type: LoadBalancer
         runner:
           registrationToken:
-            secret: gitlab-gitlab-runner-secret
+            secret: gitlab-runner-secret
       registry:
         storage:
           secret: registry-storage
@@ -130,7 +130,7 @@ spec:
         create: true
         clusterWideAccess: true
         runners:
-          secret: gitlab-gitlab-runner-secret
+          secret: gitlab-runner-secret
           privileged: true
       nginx-ingress:
         enabled: false
