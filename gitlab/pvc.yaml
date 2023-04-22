@@ -17,5 +17,6 @@ spec:
   storageClassName: local-path
   accessModes:
     - ReadWriteOnce
-  capacity:
-    storage: 5Gi
+  resources:
+    requests:
+      storage: 5Gi
