@@ -14,16 +14,3 @@ spec:
     volumeHandle: gitlab-gitaly
     driver: driver.longhorn.io
     fsType: ext4
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: gitlab-redis-master-0
-  labels:
-    app.kubernetes.io/name: gitlab
-spec:
-  storageClassName: local-host
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 5Gi
