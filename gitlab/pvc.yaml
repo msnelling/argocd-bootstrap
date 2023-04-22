@@ -14,9 +14,5 @@ metadata:
   labels:
     app.kubernetes.io/name: gitlab
 spec:
-  accessModes:
-    - ReadWriteOnce
   storageClassName: local-path
-  resources:
-    requests:
-      storage: 5Gi
+  volumeName: gitlab-redis-master-0
