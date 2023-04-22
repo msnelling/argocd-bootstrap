@@ -5,9 +5,12 @@ metadata:
   labels:
     app.kubernetes.io/name: gitlab
 spec:
+  volumeName: gitlab-gitaly-0
   accessModes:
     - ReadWriteOnce
-  volumeName: gitlab-gitaly-0
+  resources:
+    requests:
+      storage: 20Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
