@@ -104,7 +104,7 @@ gitlab:
         type: LoadBalancer
     runner:
       registrationToken:
-        secret: gitlab-runner-secret
+        secret: gitlab-gitlab-runner-secret
   registry:
     storage:
       secret: gitlab-registry-storage
@@ -123,7 +123,7 @@ gitlab:
     create: true
     clusterWideAccess: true
     runners:
-      secret: gitlab-runner-secret
+      secret: gitlab-gitlab-runner-secret
       privileged: true
   nginx-ingress:
     enabled: false
