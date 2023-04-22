@@ -44,7 +44,7 @@ spec:
           domain: xmple.io
           user_name: masnelling@icloud.com
           password:
-            secret: smtp-password
+            secret: gitlab-smtp-password
             key: password
         minio:
           enabled: false
