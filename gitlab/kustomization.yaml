@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - service-account.yaml
   - secret-store.yaml
+  - external-secrets.yaml
   #- gitlab.yaml
