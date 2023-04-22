@@ -56,27 +56,27 @@ spec:
           object_store:
             bucket: gitlab-object-storage
             connection:
-              secret: object-storage
+              secret: gitlab-object-storage
               key: connection
           lfs:
             bucket: gitlab-lfs-storage
             connection:
-              secret: object-storage
+              secret: gitlab-object-storage
               key: connection
           artifacts:
             bucket: gitlab-artifacts-storage
             connection:
-              secret: object-storage
+              secret: gitlab-object-storage
               key: connection
           uploads:
             bucket: gitlab-uploads-storage
             connection:
-              secret: object-storage
+              secret: gitlab-object-storage
               key: connection
           packages:
             bucket: gitlab-packages-storage
             connection:
-              secret: object-storage
+              secret: gitlab-object-storage
               key: connection
           backups:
             bucket: gitlab-backup-storage
@@ -84,7 +84,7 @@ spec:
           omniauth:
             enabled: true
             providers:
-            - secret: gitlab-github-oauth2
+              - secret: gitlab-github-oauth2
       gitlab:
         webservice:
           ingress:
