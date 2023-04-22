@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gitlab-gitaly
+  labels:
+    app.kubernetes.io/name: gitlab
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: longhorn-gitlab-gitaly
+  capacity:
+    storage: 20Gi
+  csi:
+    driver: driver.longhorn.io
+    fsType: ext4
+    volumeHandle: gitlab-gitaly

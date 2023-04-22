@@ -5,4 +5,7 @@ resources:
   - secret-store.yaml
   - external-secrets.yaml
   - certificate.yaml
+  - storage-class.yaml
+  - pv.yaml
+  - pvc.yaml
   #- gitlab.yaml
