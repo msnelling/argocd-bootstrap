@@ -13,7 +13,7 @@ spec:
   source:
     chart: gitlab-operator
     repoURL: https://gitlab.com/api/v4/projects/18899486/packages/helm/stable
-    targetRevision: '>0.18'
+    targetRevision: '0.18.3'
   syncPolicy:
     automated:
       prune: true
