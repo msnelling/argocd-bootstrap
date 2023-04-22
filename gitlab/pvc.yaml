@@ -5,6 +5,8 @@ metadata:
   labels:
     app.kubernetes.io/name: gitlab
 spec:
+  accessModes:
+    - ReadWriteOnce
   volumeName: gitlab-gitaly-0
 ---
 apiVersion: v1
