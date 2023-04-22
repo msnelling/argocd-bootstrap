@@ -114,7 +114,7 @@ spec:
             secret: gitlab-runner-secret
       registry:
         storage:
-          secret: registry-storage
+          secret: gitlab-registry-storage
           key: config
       postgresql:
         install: false
