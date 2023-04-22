@@ -4,7 +4,9 @@ metadata:
   name: gitlab
 spec:
   chart:
-    version: "6.10.2" # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0-18-stable/CHART_VERSIONS
+    # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0-18-stable/CHART_VERSIONS
+    # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0-19-stable/CHART_VERSIONS
+    version: "6.10.3"
     values:
       global:
         serviceAccount:
