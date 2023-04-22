@@ -6,7 +6,7 @@ metadata:
 spec:
   project: applications
   destination:
-    namespace: gitlab-test
+    namespace: gitlab
     server: {{ .Values.spec.destination.server }}
   source:
     path: gitlab

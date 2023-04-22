@@ -1,0 +1,140 @@
+apiVersion: apps.gitlab.com/v1beta1
+kind: GitLab
+metadata:
+  name: gitlab
+spec:
+  chart:
+    version: "6.10.2" # https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/blob/0-18-stable/CHART_VERSIONS
+    values:
+      global:
+        serviceAccount:
+          enabled: true
+          create: true
+        hosts:
+          domain: xmple.io
+        psql:
+          host: '10.1.1.30'
+          port: 5432
+          database: gitlab
+          username: gitlab
+          password:
+            secret: gitlab-postgresql-password
+            key: gitlab-password
+        ingress:
+          enabled: true
+          class: traefik
+          provider: traefik
+          configureCertmanager: false
+          tls:
+            enabled: true
+            secretName: gitlab-tls
+        initialRootPassword:
+          secret: gitlab-gitlab-initial-root-password
+          key: password
+        email:
+          from: GitLab@xmple.io
+          display_name: "GitLab"
+          reply_to: noreply@xmple.io
+        smtp:
+          enabled: true
+          address: smtp.mail.me.com
+          port: 587
+          starttls_auto: true
+          tls: true
+          domain: xmple.io
+          user_name: gitlab@xmple.io
+          password:
+            secret: smtp-password
+            key: password
+        minio:
+          enabled: false
+        registry:
+          bucket: gitlab-registry-storage
+        kas:
+          enabled: true
+        appConfig:
+          object_store:
+            bucket: gitlab-object-storage
+            connection:
+              secret: object-storage
+              key: connection
+          lfs:
+            bucket: gitlab-lfs-storage
+            connection:
+              secret: object-storage
+              key: connection
+          artifacts:
+            bucket: gitlab-artifacts-storage
+            connection:
+              secret: object-storage
+              key: connection
+          uploads:
+            bucket: gitlab-uploads-storage
+            connection:
+              secret: object-storage
+              key: connection
+          packages:
+            bucket: gitlab-packages-storage
+            connection:
+              secret: object-storage
+              key: connection
+          backups:
+            bucket: gitlab-backup-storage
+            tmpBucket: gitlab-tmp-storage
+          omniauth:
+            enabled: true
+            providers:
+            - secret: gitlab-github-oauth2
+      gitlab:
+        webservice:
+          ingress:
+            annotations:
+              traefik.ingress.kubernetes.io/router.entrypoints: websecure
+              traefik.ingress.kubernetes.io/router.tls: 'true'      
+              cfargotunnel.com/cluster-tunnel: k3s-xmple-io
+              cfargotunnel.com/fqdn: gitlab.xmple.io
+        gitaly:
+          persistence:
+            volumeName: gitlab-gitaly
+        toolbox:
+          backups:
+            cron:
+              enabled: true
+              schedule: 0 1 * * *
+              extraArgs: --maximum-backups 7
+            objectStorage:
+              config:
+                secret: s3cmd-config
+                key: config
+        gitlab-shell:
+          service:
+            type: LoadBalancer
+        runner:
+          registrationToken:
+            secret: gitlab-gitlab-runner-secret
+      registry:
+        storage:
+          secret: registry-storage
+          key: config
+      postgresql:
+        install: false
+      redis:
+        master:
+          persistence:
+            volumeName: gitlab-redis-master
+      gitlab-runner:
+        install: true
+        rbac:
+          create: true
+        gitlabUrl: http://gitlab-webservice-default:8080/
+        create: true
+        clusterWideAccess: true
+        runners:
+          secret: gitlab-gitlab-runner-secret
+          privileged: true
+      nginx-ingress:
+        enabled: false
+      certmanager:
+        install: false
+      prometheus:
+        install: false
