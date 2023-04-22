@@ -104,7 +104,7 @@ spec:
               extraArgs: --maximum-backups 7
             objectStorage:
               config:
-                secret: s3cmd-config
+                secret: gitlab-s3cmd-config
                 key: config
         gitlab-shell:
           service:
