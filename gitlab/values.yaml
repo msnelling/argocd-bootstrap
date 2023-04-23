@@ -1,8 +1,10 @@
 gitlab:
+  # needed for ArgoCD, see https://gitlab.com/gitlab-org/charts/gitlab/-/issues/2979#note_732297487
+  upgradeCheck:
+    enabled: false 
+
+  # https://gitlab.com/gitlab-org/charts/gitlab/-/blob/master/values.yaml
   global:
-    serviceAccount:
-      enabled: true
-      create: true
     hosts:
       domain: xmple.io
     psql:
@@ -78,6 +80,7 @@ gitlab:
         enabled: true
         providers:
           - secret: gitlab-github-oauth2
+
   gitlab:
     webservice:
       ingress:
@@ -105,29 +108,50 @@ gitlab:
     runner:
       registrationToken:
         secret: gitlab-gitlab-runner-secret
+  
+  # https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
+  gitlab-runner:
+    gitlabUrl: http://gitlab-webservice-default:8080/
+    runners:
+      secret: gitlab-gitlab-runner-secret
+      privileged: true
+      # Runner Configuration
+      # https://docs.gitlab.com/runner/configuration/advanced-configuration.html
+      config: |
+        [[runners]]
+          [runners.kubernetes]
+            namespace = "{{ .Release.Namespace }}"
+            image = "ubuntu:22:04"
+            dns_policy = "none"
+          [runners.kubernetes.dns_config]
+            nameservers = ["10.1.1.15"]
+
+  # https://gitlab.com/gitlab-org/charts/gitlab/-/blob/master/charts/registry/values.yaml
   registry:
     storage:
       secret: gitlab-registry-storage
       key: config
+
+  # https://github.com/bitnami/charts/blob/main/bitnami/postgresql/values.yaml
   postgresql:
     install: false
+
+  # https://docs.gitlab.com/charts/installation/command-line-options.html#advanced-in-cluster-redis-configuration
+  # https://github.com/bitnami/charts/blob/main/bitnami/redis/values.yaml
   redis:
     master:
       persistence:
         volumeName: gitlab-redis-master
-  gitlab-runner:
-    install: true
-    rbac:
-      create: true
-    gitlabUrl: http://gitlab-webservice-default:8080/
-    create: true
-    clusterWideAccess: true
-    runners:
-      secret: gitlab-gitlab-runner-secret
-      privileged: true
+
+  # https://gitlab.com/gitlab-org/charts/gitlab/-/tree/master/charts/nginx-ingress
   nginx-ingress:
     enabled: false
+
+  # https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/values.yaml
   certmanager:
     install: false
+
+  # https://docs.gitlab.com/charts/installation/command-line-options.html#prometheus
+  # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
   prometheus:
     install: false
