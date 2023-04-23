@@ -105,6 +105,7 @@ gitlab:
     gitlab-shell:
       service:
         type: LoadBalancer
+        loadBalancerIP: 10.1.1.49
     runner:
       registrationToken:
         secret: gitlab-gitlab-runner-secret
