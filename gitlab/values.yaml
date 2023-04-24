@@ -112,20 +112,17 @@ gitlab:
   
   # https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
   gitlab-runner:
+    install: true
+    rbac:
+      create: true
     gitlabUrl: http://gitlab-webservice-default:8080/
+    create: true
+    clusterWideAccess: true
     runners:
       secret: gitlab-gitlab-runner-secret
       privileged: true
       # Runner Configuration
       # https://docs.gitlab.com/runner/configuration/advanced-configuration.html
-      config: |
-        [[runners]]
-          [runners.kubernetes]
-            namespace = "{{ .Release.Namespace }}"
-            image = "ubuntu:22:04"
-            dns_policy = "none"
-          [runners.kubernetes.dns_config]
-            nameservers = ["10.1.1.15"]
 
   # https://gitlab.com/gitlab-org/charts/gitlab/-/blob/master/charts/registry/values.yaml
   registry:
