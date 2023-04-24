@@ -112,11 +112,7 @@ gitlab:
   
   # https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
   gitlab-runner:
-    install: true
-    rbac:
-      create: true
     gitlabUrl: http://gitlab-webservice-default:8080/
-    create: true
     clusterWideAccess: true
     runners:
       secret: gitlab-gitlab-runner-secret
