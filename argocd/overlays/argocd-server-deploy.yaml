@@ -7,9 +7,8 @@ spec:
     spec:
       serviceAccountName: argocd-server
       containers:
-      - name: argocd-server
-        command:
-        - argocd-server
-        - --insecure
-        - --staticassets
-        - /shared/app
+        - name: argocd-server
+          args:
+            - /usr/local/bin/argocd-server
+            - --staticassets
+            - /shared/app
