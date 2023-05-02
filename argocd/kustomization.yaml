@@ -7,7 +7,7 @@ resources:
   - ui-ingress.yaml
   - external-secrets.yaml
 patchesStrategicMerge:
-  - overlays/argocd-server-deploy.yaml
+  #- overlays/argocd-server-deploy.yaml
   - overlays/argocd-cm.yaml
   - overlays/argocd-rbac-cm.yaml
 patchesJson6902:
