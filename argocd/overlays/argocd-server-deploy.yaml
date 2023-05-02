@@ -10,5 +10,6 @@ spec:
         - name: argocd-server
           args:
             - /usr/local/bin/argocd-server
+            - --insecure
             - --staticassets
             - /shared/app
