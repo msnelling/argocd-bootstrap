@@ -21,7 +21,7 @@ data:
        - CiliumIdentity
      clusters:
        - "*"
-configManagementPlugins: |
+  configManagementPlugins: |
     - name: kustomized-helm
       init:
         command: ["/bin/sh", "-c"]
