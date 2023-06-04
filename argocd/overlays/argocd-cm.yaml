@@ -14,13 +14,6 @@ data:
       ignoreDifferences: |
         jsonPointers:
         - /webhooks/0/failurePolicy
-  resource.exclusions: |
-    - apiGroups:
-      - cilium.io
-      kinds:
-      - CiliumIdentity
-      clusters:
-      - "*"
   configManagementPlugins: |
     - name: kustomized-helm
       init:
