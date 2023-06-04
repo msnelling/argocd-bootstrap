@@ -16,3 +16,6 @@ spec:
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
+  clusterResourceBlacklist:
+    - group: cilium.io
+      kind: CiliumIdentity

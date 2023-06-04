@@ -7,10 +7,13 @@ metadata:
 spec:
   description: Bootstrap Project
   sourceRepos:
-  - '*'
+    - '*'
   destinations:
-  - namespace: '*'
-    server: https://kubernetes.default.svc
+    - namespace: '*'
+      server: https://kubernetes.default.svc
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'
+  clusterResourceBlacklist:
+    - group: cilium.io
+      kind: CiliumIdentity
