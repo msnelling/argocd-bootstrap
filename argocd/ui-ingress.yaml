@@ -8,6 +8,7 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
+    rotationPolicy: Always
   dnsNames:
     - argocd.xmple.io
   issuerRef:
