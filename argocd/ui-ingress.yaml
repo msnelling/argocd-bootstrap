@@ -9,34 +9,31 @@ spec:
     algorithm: ECDSA
     size: 384
   dnsNames:
-  - argocd.xmple.io
+    - argocd.xmple.io
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
 ---
-apiVersion: traefik.io/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: argocd-server
+  labels:
+    app.kubernetes.io/name: argocd-server
 spec:
-  entryPoints:
-  - websecure
-  routes:
-  - kind: Rule
-    match: Host(`argocd.xmple.io`)
-    priority: 10
-    services:
-    - name: argocd-server
-      port: 80
-  - kind: Rule
-    match: Host(`argocd.xmple.io`) && Headers(`Content-Type`, `application/grpc`)
-    priority: 11
-    services:
-    - name: argocd-server
-      port: 80
-      scheme: h2c
+  ingressClassName: cilium
+  rules:
+    - host: argocd.xmple.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  name: http
   tls:
-    secretName: argocd-tls
-    options:
-      name: mintls13
-      namespace: traefik
+    - secretName: argocd-tls
+      hosts:
+        - argocd.xmple.io
