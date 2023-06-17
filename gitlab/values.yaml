@@ -17,8 +17,8 @@ gitlab:
         key: gitlab-password
     ingress:
       enabled: true
-      class: traefik
-      provider: traefik
+      class: cilium
+      provider: cilium
       configureCertmanager: false
       tls:
         enabled: true
