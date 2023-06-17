@@ -8,8 +8,9 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
+    rotationPolicy: Always
   dnsNames:
-  - longhorn.k3s.xmple.io
+    - longhorn.k3s.xmple.io
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
