@@ -9,6 +9,7 @@ patchesStrategicMerge:
   - overlays/argocd-server-deploy.yaml
   - overlays/argocd-cm.yaml
   - overlays/argocd-rbac-cm.yaml
+  - overlays/argocd-server-ingress.yaml
 patchesJson6902:
   - patch: |-
       - op: add
