@@ -7,7 +7,7 @@ spec:
   secretName: argocd-tls
   privateKey:
     algorithm: ECDSA
-    size: 384
+    size: 256
   dnsNames:
     - argocd.xmple.io
   issuerRef:

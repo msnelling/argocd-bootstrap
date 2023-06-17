@@ -7,7 +7,7 @@ spec:
   secretName: longhorn-dashboard-tls
   privateKey:
     algorithm: ECDSA
-    size: 384
+    size: 256
   dnsNames:
   - longhorn.k3s.xmple.io
   issuerRef:

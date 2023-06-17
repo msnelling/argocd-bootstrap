@@ -8,7 +8,7 @@ spec:
   secretName: gitlab-tls
   privateKey:
     algorithm: ECDSA
-    size: 384
+    size: 256
   dnsNames:
     - gitlab.xmple.io
   issuerRef:

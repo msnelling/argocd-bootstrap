@@ -7,7 +7,7 @@ spec:
   secretName: grafana-tls
   privateKey:
     algorithm: ECDSA
-    size: 384
+    size: 256
   dnsNames:
     - grafana.k3s.xmple.io
   issuerRef:
