@@ -5,11 +5,10 @@ resources:
   - projects.yaml
   - ui-ingress.yaml
   - external-secrets.yaml
-patchesStrategicMerge:
-  - overlays/argocd-server-deploy.yaml
-  - overlays/argocd-cm.yaml
-  - overlays/argocd-rbac-cm.yaml
-patchesJson6902:
+patches:
+  - path: overlays/argocd-server-deploy.yaml
+  - path: overlays/argocd-cm.yaml
+  - path: overlays/argocd-rbac-cm.yaml
   - patch: |-
       - op: add
         path: /spec/template/spec/volumes/-
