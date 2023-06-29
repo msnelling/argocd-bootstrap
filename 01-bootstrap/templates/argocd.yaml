@@ -18,6 +18,3 @@ spec:
     automated: {}
    syncOptions:
      - CreateNamespace=true
-     - ApplyOutOfSyncOnly=true
-     - Replace=true
-     - ServerSideApply=true
