@@ -1,0 +1,12 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: whoami-gateway
+spec:
+  gatewayClassName: cilium
+  listeners:
+    - protocol: HTTP
+      port: 8080
+      allowedRoutes:
+        namespaces:
+          from: Same
