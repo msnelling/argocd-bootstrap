@@ -16,13 +16,14 @@ spec:
       values: |
         installCRDs: "true"
         extraArgs:
-        - --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53
+          - --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53
+          - --feature-gates=ExperimentalGatewayAPISupport=true
         nodeSelector:
           node-role.kubernetes.io/master: 'true'
         tolerations:
-        - key: node-role.kubernetes.io/master
-          operator: Exists
-          effect: NoSchedule
+          - key: node-role.kubernetes.io/master
+            operator: Exists
+            effect: NoSchedule
   ignoreDifferences:
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
