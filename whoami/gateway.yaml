@@ -12,6 +12,9 @@ metadata:
   name: whoami-gateway
 spec:
   gatewayClassName: cilium
+  addresses:
+    - type: IPAddress
+      value: 10.1.1.48
   listeners:
     - name: web-gw
       protocol: HTTP
