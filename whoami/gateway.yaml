@@ -10,8 +10,6 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: Gateway
 metadata:
   name: whoami
-annotations:
-  cert-manager.io/issuer: letsencrypt-staging
 spec:
   gatewayClassName: cilium
   listeners:
@@ -21,6 +19,16 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
+---
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: Gateway
+metadata:
+  name: whoami-tls
+annotations:
+  cert-manager.io/issuer: letsencrypt-staging
+spec:
+  gatewayClassName: cilium
+  listeners:
     - name: https
       protocol: HTTPS
       port: 443
