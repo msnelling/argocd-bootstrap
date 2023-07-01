@@ -9,20 +9,6 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: Gateway
 metadata:
-  name: whoami
-spec:
-  gatewayClassName: cilium
-  listeners:
-    - name: http
-      protocol: HTTP
-      port: 80
-      allowedRoutes:
-        namespaces:
-          from: All
----
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
   name: whoami-tls
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
@@ -44,7 +30,8 @@ metadata:
   name: http-whoami
 spec:
   parentRefs:
-    - name: whoami
+    - name: whoami-tls
+      kind: Gateway
   hostnames:
     - whoami.xmple.io
   rules:
@@ -55,3 +42,4 @@ spec:
       backendRefs:
         - name: whoami
           port: 80
+          kind: Service
