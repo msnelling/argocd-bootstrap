@@ -25,7 +25,7 @@ kind: Gateway
 metadata:
   name: whoami-tls
 annotations:
-  cert-manager.io/issuer: letsencrypt-staging
+  cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   gatewayClassName: cilium
   listeners:
