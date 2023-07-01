@@ -15,10 +15,18 @@ metadata:
 spec:
   gatewayClassName: cilium
   listeners:
-    - name: https
+    - name: https-1
       protocol: HTTPS
       port: 443
       hostname: whoami.xmple.io
+      tls:
+        certificateRefs:
+          - kind: Secret
+            name: whoami-tls
+    - name: https-2
+      protocol: HTTPS
+      port: 443
+      hostname: whoami2.xmple.io
       tls:
         certificateRefs:
           - kind: Secret
