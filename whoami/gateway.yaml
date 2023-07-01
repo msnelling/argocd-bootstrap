@@ -34,7 +34,7 @@ spec:
     - whoami.xmple.io
   rules:
     - matches:
-        - path:
+      - path:
           type: Exact
           value: /
       backendRefs:
