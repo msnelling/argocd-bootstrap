@@ -3,7 +3,11 @@ longhorn:
     defaultReplicaCount: 2
     backupTarget: s3://longhorn@home/
     backupTargetCredentialSecret: s3-secret
+
+  # https://github.com/longhorn/longhorn/issues/6297
   longhornRecoveryBackend:
     replicas: 0
   longhornConversionWebhook:
+    replicas: 0
+  longhornAdmissionWebhook:
     replicas: 0
