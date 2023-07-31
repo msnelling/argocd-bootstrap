@@ -34,7 +34,6 @@ gitlab:
       enabled: true
       address: smtp.mail.me.com
       port: 587
-      starttls_auto: true
       tls: true
       domain: xmple.io
       user_name: masnelling@icloud.com
