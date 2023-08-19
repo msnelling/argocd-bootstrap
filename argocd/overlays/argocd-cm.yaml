@@ -14,14 +14,6 @@ data:
       ignoreDifferences: |
         jsonPointers:
         - /webhooks/0/failurePolicy
-  configManagementPlugins: |
-    - name: kustomized-helm
-      init:
-        command: ["/bin/sh", "-c"]
-        args: ["helm dependency build"]
-      generate:
-        command: [sh, -c]
-        args: ["helm template --release-name $ARGOCD_APP_NAME --namespace $ARGOCD_APP_NAMESPACE --include-crds . > all.yaml && kustomize build"]
   url: https://argocd.xmple.io
   dex.config: |
     connectors:
