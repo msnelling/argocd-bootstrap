@@ -11,7 +11,7 @@ spec:
     - {{ .Values.spec.source.repoURL }}
     - https://charts.gitlab.io/
     - https://gitlab.com/api/v4/projects/18899486/packages/helm/stable
-    - https://github.com/msnelling/argocd-db3000
+    - https://github.com/msnelling/argocd-db3000.git
   destinations:
     - namespace: '*'
       server: {{ .Values.spec.destination.server }}
