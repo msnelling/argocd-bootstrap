@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: db3000
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: applications
+  destination:
+    namespace: db3000
+    server: {{ .Values.spec.destination.server }}
+  source:
+    path: apps
+    repoURL: https://github.com/msnelling/argocd-db3000.git
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
