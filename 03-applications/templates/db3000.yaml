@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: db3000
+  name: db3000-app
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
