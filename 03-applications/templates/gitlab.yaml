@@ -14,6 +14,8 @@ spec:
     path: gitlab
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
+    helm:
+      releaseName: gitlab
   syncPolicy:
     automated:
       prune: true
