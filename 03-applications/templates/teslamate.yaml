@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: teslamate-app
+  name: app-teslamate
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
