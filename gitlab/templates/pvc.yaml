@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: repo-data-gitlab-gitaly-0
+  name: repo-data-{{ .Release.Name }}-gitaly-0
   labels:
     app.kubernetes.io/name: gitlab
 spec:
@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: redis-data-gitlab-redis-master-0
+  name: redis-data-{{ .Release.Name }}-redis-master-0
   labels:
     app.kubernetes.io/name: gitlab
 spec:
