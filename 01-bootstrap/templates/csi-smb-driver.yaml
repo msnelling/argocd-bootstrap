@@ -13,6 +13,6 @@ spec:
   source:
     chart: csi-driver-smb
     repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
-    targetRevision: 1.12.0
+    targetRevision: 1.13.0
   syncPolicy:
     automated: {}
