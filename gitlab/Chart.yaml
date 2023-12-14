@@ -3,8 +3,8 @@ name: gitlab
 description: Gitlab Version Control System
 type: application
 version: 0.1.0
-appVersion: "16.6.1"
+appVersion: "16.6.2"
 dependencies:
   - name: gitlab
-    version: 7.6.1
+    version: 7.6.2
     repository: https://charts.gitlab.io
