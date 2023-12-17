@@ -11,3 +11,7 @@ longhorn:
     replicas: 0
   longhornAdmissionWebhook:
     replicas: 0
+
+  # https://github.com/longhorn/longhorn/issues/4853
+  helmPreUpgradeCheckerJob:
+    enabled: false
