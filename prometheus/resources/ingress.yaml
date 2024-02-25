@@ -16,6 +16,17 @@ spec:
     kind: ClusterIssuer
 ---
 apiVersion: traefik.io/v1alpha1
+kind: TLSOption
+metadata:
+  name: mintls13
+  labels:
+    app.kubernetes.io/name: teslamate
+spec:
+  minVersion: VersionTLS13
+  curvePreferences:
+    - CurveP384
+---
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: grafana
@@ -33,4 +44,3 @@ spec:
     secretName: grafana-tls
     options:
       name: mintls13
-      namespace: traefik
