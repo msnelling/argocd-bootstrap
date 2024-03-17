@@ -7,6 +7,8 @@ gitlab:
   global:
     hosts:
       domain: xmple.io
+    hpa:
+      minReplicas: 1
     psql:
       host: '10.1.1.30'
       port: 5432
