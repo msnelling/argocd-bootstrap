@@ -121,7 +121,7 @@ server:
 ##
 log:
   ## Level of verbosity for logs: info, debug, trace.
-  level: debug
+  level: info
 
   ## Format the logs are written as: json, text.
   # format: 'json'
@@ -274,7 +274,7 @@ identity_validation:
     # jwt_algorithm: 'HS256'
 
     ## The secret key used to sign and verify the JWT.
-    #jwt_secret: supplied by vault
+    jwt_secret: 'supplied by vault'
 
   ## Elevated Session flows. Adjusts the flow which require elevated sessions for example managing credentials, adding,
   ## removing, etc.
@@ -746,7 +746,7 @@ access_control:
 session:
   ## The secret to encrypt the session data. This is only used with Redis / Redis Sentinel.
   ## Secret can also be set using a secret: https://www.authelia.com/c/secrets
-  #secret: 'supplied by vault'
+  secret: 'supplied by vault'
 
   ## Cookies configures the list of allowed cookie domains for sessions to be created on.
   ## Undefined values will default to the values below.
@@ -1168,7 +1168,7 @@ notifier:
 
     ## The password used for SMTP authentication.
     ## Can also be set using a secret: https://www.authelia.com/c/secrets
-    # password: 'supplied by vault'
+    password: 'supplied by vault'
 
     ## The sender is used to is used for the MAIL FROM command and the FROM header.
     ## If this is not defined and the username is an email, we use the username as this value. This can either be just
