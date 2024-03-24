@@ -739,7 +739,7 @@ session:
   ## Cookies configures the list of allowed cookie domains for sessions to be created on.
   ## Undefined values will default to the values below.
   cookies:
-  #   -
+    -
       ## The name of the session cookie.
       name: 'authelia_session'
 
