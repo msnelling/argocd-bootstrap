@@ -526,8 +526,8 @@ authentication_backend:
   ##
   ## Important: Kubernetes (or HA) users must read https://www.authelia.com/t/statelessness
   ##
-  # file:
-    # path: '/config/users_database.yml'
+  file:
+    path: /config/users.yaml
     # watch: false
     # search:
       # email: false
@@ -650,7 +650,19 @@ access_control:
     # - name: 'VPN'
     #   networks: '10.9.0.0/16'
 
-  # rules:
+  rules:
+    - domain: "*.xmple.io"
+      subject: group:admin
+      policy: two_factor
+
+    - domain: db3000.xmple.io
+      subject: group:db3000
+      policy: two_factor
+
+    - domain: transmission.xmple.io
+      subject: group:db3000
+      policy: two_factor
+
     ## Rules applied to everyone
     # - domain: 'public.example.com'
     #   policy: 'bypass'
