@@ -15,9 +15,11 @@ spec:
               image: renovate/renovate:37.329.0
               env:
                 - name: LOG_LEVEL
-                  value: debug
+                  value: info
                 - name: RENOVATE_CONFIG_FILE
                   value: /opt/renovate/config.json
+                - name: RENOVATE_BASE_DIR
+                  value: '/tmp/renovate/'
               envFrom:
                 - secretRef:
                     name: renovate-env
@@ -27,6 +29,8 @@ spec:
                 - name: ssh-key-volume
                   readOnly: true
                   mountPath: /home/ubuntu/.ssh
+                - name: work-volume
+                  mountPath: /tmp/renovate/
           volumes:
             - name: config-volume
               configMap:
@@ -34,3 +38,5 @@ spec:
             - name: ssh-key-volume
               secret:
                 secretName: ssh-key-secret
+            - name: work-volume
+              emptyDir: {}
