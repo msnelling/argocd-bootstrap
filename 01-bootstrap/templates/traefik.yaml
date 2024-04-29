@@ -3,21 +3,47 @@ kind: Application
 metadata:
   name: traefik
   namespace: argocd
-#  finalizers:
-#    - resources-finalizer.argocd.argoproj.io
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
   destination:
     namespace: traefik
     server: {{ .Values.spec.destination.server }}
   source:
-    path: traefik
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-  syncPolicy:
-    automated:
-      prune: true
-      allowEmpty: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+    chart: traefik
+    repoURL: https://helm.traefik.io/traefik
+    targetRevision: 28.0.0-rc.1
+    helm:
+      values: |
+        logs:
+          general:
+            loglevel: INFO
+        ports:
+          traefik:
+            expose: 
+              default: true
+          web:
+            redirectTo:
+              port: websecure
+          websecure:
+            http3:
+              enabled: true
+            tls:
+              enabled: true
+        service:
+          annotations:
+            kube-vip.io/loadbalancerIPs: 10.1.1.48
+        ingressClass:
+          name: traefik
+        providers:
+          kubernetesIngress:
+            publishedService:
+              enabled: true
+        syncPolicy:
+          automated:
+            prune: true
+            allowEmpty: true
+            selfHeal: true
+          syncOptions:
+            - CreateNamespace=true
