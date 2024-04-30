@@ -40,10 +40,11 @@ spec:
           kubernetesIngress:
             publishedService:
               enabled: true
-        syncPolicy:
-          automated:
-            prune: true
-            allowEmpty: true
-            selfHeal: true
-          syncOptions:
-            - CreateNamespace=true
+  syncPolicy:
+    automated:
+      prune: true
+      allowEmpty: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
