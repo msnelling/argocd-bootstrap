@@ -5,6 +5,7 @@ metadata:
 data:
   config.json: |-
     {
+      "extends": ["config:recommended"],
       "repositories": [
         "msnelling/renovate",
         "msnelling/argocd-bootstrap",
