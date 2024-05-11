@@ -31,6 +31,9 @@ spec:
               enabled: true
             tls:
               enabled: true
+        entryPoints:
+          minecraft-bedrock-1:
+            address: ':19132/udp'
         service:
           annotations:
             kube-vip.io/loadbalancerIPs: 10.1.1.48
