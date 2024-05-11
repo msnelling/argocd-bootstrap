@@ -4,8 +4,8 @@ namespace: traefik
 commonLabels:
   app.kubernetes.io/instance: traefik
   app.kubernetes.io/part-of: traefik
-resources:
-  - resources/config.yaml
+#resources:
+#  - resources/config.yaml
 helmCharts:
   - name: traefik
     repo: https://helm.traefik.io/traefik

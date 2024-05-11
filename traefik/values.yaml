@@ -22,6 +22,11 @@ providers:
   kubernetesIngress:
     publishedService:
       enabled: true
+entryPoints:
+  minecraft-bedrock-1:
+    address: ':19132/udp'
+additionalArguments:
+  - "--entryPoints.minecraft-bedrock-1.address=:19132/udp"
 envFrom:
   - configMapRef:
       name: traefik-config
