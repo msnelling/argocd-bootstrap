@@ -41,6 +41,7 @@ spec:
             publishedService:
               enabled: true
           file:
+            enabled: true
             content: |
               entryPoints:
                 minecraft-bedrock-1:
