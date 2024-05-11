@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: traefik-config
-  labels:
-    app.kubernetes.io/name: traefik
-data:
-  TRAEFIK_ENTRYPOINTS_minecraft-bedrock-1: 'true'
-  TRAEFIK_ENTRYPOINTS_minecraft-bedrock-1_ADDRESS: ':19132/udp'
