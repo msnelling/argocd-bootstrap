@@ -110,12 +110,12 @@ gitlab:
         secret: gitlab-runner-secret
   
   # https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
-  gitlab-runner:
-    gitlabUrl: http://gitlab-webservice-default:8080/
-    clusterWideAccess: true
-    runners:
-      secret: gitlab-runner-secret
-      privileged: true
+#  gitlab-runner:
+#    gitlabUrl: http://gitlab-webservice-default:8080/
+#    clusterWideAccess: true
+#    runners:
+#      secret: gitlab-runner-secret
+#      privileged: true
       # Runner Configuration
       # https://docs.gitlab.com/runner/configuration/advanced-configuration.html
 
