@@ -13,6 +13,7 @@ data:
     admissionregistration.k8s.io/ValidatingWebhookConfiguration:
       ignoreDifferences: |
         jsonPointers:
+        - /webhooks/0/clientConfig/caBundle
         - /webhooks/0/failurePolicy
   url: https://argocd.xmple.io
   dex.config: |
