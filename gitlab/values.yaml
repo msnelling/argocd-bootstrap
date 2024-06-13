@@ -115,8 +115,8 @@ gitlab:
     rbac:
       create: true
 #    clusterWideAccess: true
-#    runners:
-#      secret: gitlab-runner-secret
+    runners:
+      secret: gitlab-runner-secret
 #      privileged: true
       # Runner Configuration
       # https://docs.gitlab.com/runner/configuration/advanced-configuration.html
