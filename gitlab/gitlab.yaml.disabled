@@ -112,13 +112,13 @@ spec:
             loadBalancerIP: 10.1.1.49
         runner:
           registrationToken:
-            secret: gitlab-gitlab-runner-secret
+            secret: gitlab-runner-secret
       
       # https://docs.gitlab.com/charts/charts/gitlab/gitlab-runner/
       gitlab-runner:
         gitlabUrl: http://gitlab-webservice-default:8080/
         runners:
-          secret: gitlab-gitlab-runner-secret
+          secret: gitlab-runner-secret
           privileged: true
           # Runner Configuration
           # https://docs.gitlab.com/runner/configuration/advanced-configuration.html
