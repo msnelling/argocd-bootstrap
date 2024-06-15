@@ -16,7 +16,7 @@ spec:
     - group: ""
       kind: Service
       name: traefik
-      #namespace: default
+      namespace: traefik
       jsonPointers:
         - /spec/ports/*/nodePort
   syncPolicy:
