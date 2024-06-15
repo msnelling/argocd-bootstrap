@@ -12,6 +12,13 @@ spec:
     path: traefik
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
+  ignoreDifferences:
+    - group: ""
+      kind: Service
+      name: traefik
+      #namespace: default
+      jsonPointers:
+        - /spec/ports/*/nodePort
   syncPolicy:
     automated:
       prune: true
