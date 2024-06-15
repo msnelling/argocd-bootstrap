@@ -22,8 +22,3 @@ providers:
   kubernetesIngress:
     publishedService:
       enabled: true
-#entryPoints:
-#  minecraft-bedrock:
-#    address: ':19132/udp'
-#additionalArguments:
-#  - "--entryPoints.minecraft-bedrock.address=:19132/udp"
