@@ -7,7 +7,6 @@ data:
     {
       "extends": ["config:recommended"],
       "repositories": [
-        "msnelling/renovate",
         "msnelling/argocd-bootstrap",
         "msnelling/argocd-db3000",
         "msnelling/gitops-teslamate",
