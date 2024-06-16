@@ -22,3 +22,6 @@ providers:
   kubernetesIngress:
     publishedService:
       enabled: true
+certResolvers:
+  tailscale:
+    tailscale: {}
