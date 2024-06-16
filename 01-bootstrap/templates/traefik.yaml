@@ -13,10 +13,8 @@ spec:
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   ignoreDifferences:
-    - group: ""
-      kind: Service
+    - kind: Service
       name: traefik
-      #namespace: traefik
       jsonPointers:
         - /spec/ports/0/nodePort
         - /spec/ports/1/nodePort
