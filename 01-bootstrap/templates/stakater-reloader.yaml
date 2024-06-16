@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stakater-reloader
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: bootstrap
+  syncPolicy:
+    automated: {}
+  destination:
+    namespace: stakater-reloader
+    server: {{ .Values.spec.destination.server }}
+  source:
+    chart: stakater/reloader
+    repoURL: https://stakater.github.io/stakater-charts
+    targetRevision: 1.0.107
+#    helm:
+#      values: |
+#
+  syncPolicy:
+    automated: {}
+    syncOptions:
+      - CreateNamespace=true
