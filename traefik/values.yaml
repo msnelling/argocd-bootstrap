@@ -23,4 +23,4 @@ providers:
     publishedService:
       enabled: true
 additionalArguments:
-  --certificatesresolvers.tailscale-resolver.tailscale=true
+  - --certificatesresolvers.tailscale-resolver.tailscale=true
