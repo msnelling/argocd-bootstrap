@@ -23,5 +23,4 @@ providers:
     publishedService:
       enabled: true
 certResolvers:
-  tailscale:
-    tailscale: {}
+  tailscale: {}
