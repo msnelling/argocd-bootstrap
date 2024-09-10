@@ -4,7 +4,7 @@ commonLabels:
   app.kubernetes.io/part-of: cloudflare-tunnel
 images:
   - name: docker.io/cloudflare/cloudflared
-    newTag: 2024.9.0
+    newTag: 2024.9.1
 resources:
   - secret-store.yaml
   - secrets.yaml
