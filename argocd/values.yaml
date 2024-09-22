@@ -1,0 +1,18 @@
+argocd:
+  configs:
+    cm:
+      admin.enabled: true # Enable for debugging
+      dex.config: |
+        connectors:
+          - type: github
+            id: github
+            name: GitHub
+            config:
+              clientID: $dex.github.clientId
+              clientSecret: $dex.github.clientSecret
+              orgs:
+                - name: xmple
+    rbac:
+      policy.default: role:readonly
+      policy.csv: |
+        g, xmple:admin, role:admin
