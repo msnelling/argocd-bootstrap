@@ -19,9 +19,9 @@ spec:
           - --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53
           - --feature-gates=ExperimentalGatewayAPISupport=true
         nodeSelector:
-          node-role.kubernetes.io/master: 'true'
+          node-role.kubernetes.io/control-plane: 'true'
         tolerations:
-          - key: node-role.kubernetes.io/master
+          - key: node-role.kubernetes.io/control-plane
             operator: Exists
             effect: NoSchedule
   ignoreDifferences:
