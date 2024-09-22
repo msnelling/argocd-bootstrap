@@ -17,20 +17,13 @@ spec:
         installCRDs: "true"
         extraArgs:
           - --dns01-recursive-nameservers=1.1.1.1:53,1.0.0.1:53
-          - --feature-gates=ExperimentalGatewayAPISupport=true
         nodeSelector:
-          node-role.kubernetes.io/master: 'true'
+          node-role.kubernetes.io/control-plane: ''
         tolerations:
-          - key: node-role.kubernetes.io/master
+          - key: node-role.kubernetes.io/control-plane
             operator: Exists
             effect: NoSchedule
-  ignoreDifferences:
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      jsonPointers:
-        - /status
   syncPolicy:
     automated: {}
     syncOptions:
       - CreateNamespace=true
-      - Validate=false
