@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: argocd
+commonLabels:
+  app.kubernetes.io/instance: argocd
+  app.kubernetes.io/part-of: argocd
+helmCharts:
+  - name: argo-cd
+    repo: https://argoproj.github.io/argo-helm
+    releaseName: argocd
+    version: 7.6.1
+    includeCRDs: true
+    namespace: argocd
+    valuesFile: values.yaml
+resources:
+  - templates/external-secrets.yaml
+  - templates/ui-ingress.yaml
+  - template/projects.yaml
