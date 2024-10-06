@@ -1,4 +1,8 @@
 server:
+  extraArgs:
+    - --insecure
+    - --staticassets
+    - /shared/app
   service:
     annotations:
       lbipam.cilium.io/sharing-key: bootstrap
