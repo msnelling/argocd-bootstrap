@@ -1,5 +1,8 @@
 server:
   service:
+    annotations:
+      lbipam.cilium.io/sharing-key: bootstrap
+      lbipam.cilium.io/sharing-cross-namespace: '*'
     loadBalancerClass: io.cilium/l2-announcer
 
 configs:
