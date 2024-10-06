@@ -4,7 +4,7 @@ commonLabels:
   app.kubernetes.io/part-of: authelia
 images:
   - name: docker.io/authelia/authelia
-    newTag: 4.38.15
+    newTag: 4.38.16
 resources:
   - redis
   - secret-store.yaml
