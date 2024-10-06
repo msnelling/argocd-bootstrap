@@ -17,4 +17,4 @@ helmCharts:
 resources:
   - templates/external-secrets.yaml
   - templates/ui-ingress.yaml
-  - template/projects.yaml
+  - templates/projects.yaml
