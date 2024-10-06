@@ -14,8 +14,7 @@ ports:
     tls:
       enabled: true
 service:
-  annotations:
-    kube-vip.io/loadbalancerIPs: 10.1.1.48
+  loadBalancerClass: io.cilium/l2-announcer
 ingressClass:
   name: traefik
 providers:

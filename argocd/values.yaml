@@ -1,3 +1,7 @@
+server:
+  service:
+    loadBalancerClass: io.cilium/l2-announcer
+
 configs:
   cm:
     admin.enabled: true # Enable for debugging
