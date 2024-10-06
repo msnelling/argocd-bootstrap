@@ -3,4 +3,4 @@ spec:
     server: https://kubernetes.default.svc
   source:
     repoURL: https://github.com/msnelling/argocd-bootstrap.git
-    targetRevision: HEAD
+    targetRevision: talos
