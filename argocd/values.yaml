@@ -8,6 +8,7 @@ server:
 configs:
   cm:
     admin.enabled: true # Enable for debugging
+    kustomize.buildOptions: --enable-helm
     dex.config: |
       connectors:
         - type: github
