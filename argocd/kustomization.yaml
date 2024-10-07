@@ -5,11 +5,6 @@ resources:
   - ui-ingress.yaml
   - external-secrets.yaml
 patches:
-  #- path: overlays/argocd-server-deploy.yaml
+  - path: overlays/argocd-server-deploy.yaml
   - path: overlays/argocd-cm.yaml
   - path: overlays/argocd-rbac-cm.yaml
-    target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: argocd-repo-server

@@ -11,5 +11,3 @@ spec:
           args:
             - /usr/local/bin/argocd-server
             - --insecure
-            - --staticassets
-            - /shared/app
