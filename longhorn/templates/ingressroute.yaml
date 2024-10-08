@@ -20,7 +20,7 @@ kind: TLSOption
 metadata:
   name: mintls13
   labels:
-    app.kubernetes.io/name: teslamate
+    app.kubernetes.io/name: longhorn
 spec:
   minVersion: VersionTLS13
   curvePreferences:
@@ -31,7 +31,7 @@ kind: Middleware
 metadata:
   name: forwardauth-authelia
   labels:
-    app.kubernetes.io/name: teslamate
+    app.kubernetes.io/name: longhorn
 spec:
   forwardAuth:
     address: http://authelia.authelia.svc.cluster.local/api/verify?rd=https%3A%2F%2Fauth.xmple.io%2F
@@ -54,8 +54,8 @@ spec:
       services:
         - name: longhorn-frontend
           port: 80
-      middlewares:
-        - name: forwardauth-authelia
+      #middlewares:
+      #  - name: forwardauth-authelia
   tls:
     secretName: longhorn-dashboard-tls
     options:
