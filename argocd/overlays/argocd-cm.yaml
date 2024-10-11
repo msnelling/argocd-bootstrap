@@ -4,6 +4,13 @@ metadata:
   name: argocd-cm
 data:
   kustomize.buildOptions: --enable-helm
+  resource.exclusions: |
+    - apiGroups:
+        - cilium.io
+      kinds:
+        - CiliumIdentity
+      clusters:
+        - "*"
   resource.customizations: |
     admissionregistration.k8s.io/MutatingWebhookConfiguration:
       ignoreDifferences: |
