@@ -8,7 +8,7 @@ helmCharts:
   - name: traefik
     repo: https://helm.traefik.io/traefik
     releaseName: traefik
-    version: 32.1.0
+    version: 32.1.1
     includeCRDs: true
     namespace: traefik
     valuesFile: values.yaml
