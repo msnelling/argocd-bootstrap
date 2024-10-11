@@ -1,7 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-commonLabels:
-  app.kubernetes.io/part-of: authelia
+labels:
+  - includeSelectors: true
+    pairs:
+      app.kubernetes.io/part-of: authelia
 images:
   - name: docker.io/authelia/authelia
     newTag: 4.38.16
