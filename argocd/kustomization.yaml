@@ -6,5 +6,5 @@ resources:
   - external-secrets.yaml
 patches:
   - path: overlays/argocd-cm.yaml
-  - path: argocd-cmd-params-cm.yaml
+  - path: overlays/argocd-cmd-params-cm.yaml
   - path: overlays/argocd-rbac-cm.yaml
