@@ -1,6 +1,8 @@
 logs:
   general:
     loglevel: INFO
+accessLogs:
+  addInternals: true
 ports:
   traefik:
     expose: 
