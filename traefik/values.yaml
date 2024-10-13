@@ -30,7 +30,7 @@ providers:
     enabled: true
   kubernetesGateway:
     enabled: true
-    experimentalChannel: true
+    experimentalChannel: false
 
 additionalArguments:
   - --certificatesresolvers.tailscale-resolver.tailscale=true
