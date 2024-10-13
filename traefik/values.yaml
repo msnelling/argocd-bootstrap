@@ -1,8 +1,7 @@
 logs:
   general:
     loglevel: INFO
-accessLogs:
-  addInternals: true
+
 ports:
   traefik:
     expose: 
@@ -15,13 +14,23 @@ ports:
       enabled: true
     tls:
       enabled: true
+
 service:
   loadBalancerClass: io.cilium/l2-announcer
+
 ingressClass:
   name: traefik
+
 providers:
   kubernetesIngress:
-    publishedService:
-      enabled: true
+    enabled: true
+#    publishedService:
+#      enabled: true
+  kubernetesCRD:
+    enabled: true
+  kubernetesGateway:
+    enabled: true
+    experimentalChannel: true
+
 additionalArguments:
   - --certificatesresolvers.tailscale-resolver.tailscale=true
