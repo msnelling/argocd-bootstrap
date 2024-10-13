@@ -10,7 +10,7 @@ spec:
     size: 256
     rotationPolicy: Always
   dnsNames:
-    - traefik.xmple.io
+    - traefik-lb.xmple.io
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
@@ -33,7 +33,7 @@ spec:
     - websecure
   routes:
     - kind: Rule
-      match: Host(`traefik.xmple.io`)
+      match: Host(`traefik-lb.xmple.io`)
       services:
         - name: traefik
           port: 9000
