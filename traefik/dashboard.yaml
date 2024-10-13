@@ -35,8 +35,8 @@ spec:
     - kind: Rule
       match: Host(`traefik-lb.xmple.io`)
       services:
-        - name: traefik
-          port: 9000
+        - name: api@internal
+          kind: TraefikService
   tls:
     secretName: traefik-dashboard-tls
     options:
