@@ -24,8 +24,8 @@ ingressClass:
 providers:
   kubernetesIngress:
     enabled: true
-#    publishedService:
-#      enabled: true
+    publishedService:
+      enabled: true
   kubernetesCRD:
     enabled: true
   kubernetesGateway:

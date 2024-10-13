@@ -1,0 +1,43 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: traefik-dashboard-tls
+spec:
+  secretName: traefik-dashboard-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  dnsNames:
+    - traefik.xmple.io
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+---
+apiVersion: traefik.io/v1alpha1
+kind: TLSOption
+metadata:
+  name: mintls13
+spec:
+  minVersion: VersionTLS13
+  curvePreferences:
+    - CurveP384
+---
+kind: IngressRoute
+apiVersion: traefik.io/v1alpha1
+metadata:
+  name: traefik-dashboard
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`traefik.xmple.io`)
+      services:
+        - name: traefik
+          port: 9000
+  tls:
+    secretName: traefik-dashboard-tls
+    options:
+      name: mintls13
