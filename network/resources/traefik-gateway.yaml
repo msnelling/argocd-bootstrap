@@ -2,7 +2,7 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: traefik-gateway-tls
+  name: traefik-gateway
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
     cert-manager.io/private-key-algorithm: ECDSA
