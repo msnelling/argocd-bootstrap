@@ -15,6 +15,9 @@ ports:
     tls:
       enabled: true
 
+gateway:
+  enabled: false
+
 service:
   loadBalancerClass: io.cilium/l2-announcer
 
