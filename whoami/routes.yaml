@@ -19,5 +19,4 @@ spec:
           extensionRef:
             group: traefik.io
             kind: Middleware
-            name: forwardauth-authelia
-            namespace: authelia
+            name: authelia/forwardauth-authelia
