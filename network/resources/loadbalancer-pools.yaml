@@ -21,4 +21,4 @@ spec:
   serviceSelector:
     matchLabels:
       io.kubernetes.service.namespace: traefik
-      io.kubernetes.service.name: traefik
+      io.kubernetes.service.name: traefik-gateway

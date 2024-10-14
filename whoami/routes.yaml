@@ -5,8 +5,8 @@ metadata:
   name: whoami
 spec:
   parentRefs:
-    - name: cilium-gateway
-      namespace: network
+    - name: traefik-gateway
+      namespace: traefik
   hostnames:
     - whoami.xmple.io
   rules:
