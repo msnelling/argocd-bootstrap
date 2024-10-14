@@ -7,5 +7,4 @@ labels:
       app.kubernetes.io/part-of: network
 resources:
   - resources/cilium-gateway.yaml
-  - resources/traefik-gateway.yaml
   - resources/loadbalancer-pools.yaml

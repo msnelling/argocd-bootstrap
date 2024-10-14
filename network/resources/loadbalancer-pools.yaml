@@ -20,5 +20,5 @@ spec:
     - start: "10.1.1.51"
   serviceSelector:
     matchLabels:
-      io.kubernetes.service.namespace: network
-      io.kubernetes.service.name: traefik-gateway-traefik-gateway
+      io.kubernetes.service.namespace: traefik
+      io.kubernetes.service.name: traefik
