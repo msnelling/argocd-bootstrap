@@ -14,5 +14,3 @@ helmCharts:
     includeCRDs: true
     namespace: traefik
     valuesFile: values.yaml
-resources:
-  - dashboard.yaml
