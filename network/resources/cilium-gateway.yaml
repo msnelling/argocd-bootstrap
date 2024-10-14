@@ -11,9 +11,12 @@ spec:
   gatewayClassName: cilium
   listeners:
     - name: https-1
-      protocol: HTTPS
-      port: 443
       hostname: xmple.io
+      port: 443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: All
       tls:
         mode: Terminate
         certificateRefs:
