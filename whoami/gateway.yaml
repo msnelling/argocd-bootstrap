@@ -23,7 +23,7 @@ spec:
       tls:
         certificateRefs:
           - kind: Secret
-            name: whoami-tls
+            name: whoami2-tls
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
