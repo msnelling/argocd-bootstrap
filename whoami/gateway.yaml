@@ -1,38 +1,12 @@
 ---
 apiVersion: gateway.networking.k8s.io/v1
-kind: Gateway
-metadata:
-  name: whoami-tls
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
-spec:
-  gatewayClassName: cilium
-  listeners:
-    - name: https-1
-      protocol: HTTPS
-      port: 443
-      hostname: whoami.xmple.io
-      tls:
-        certificateRefs:
-          - kind: Secret
-            name: whoami-tls
-    - name: https-2
-      protocol: HTTPS
-      port: 443
-      hostname: whoami2.xmple.io
-      tls:
-        certificateRefs:
-          - kind: Secret
-            name: whoami2-tls
----
-apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: http-whoami
 spec:
   parentRefs:
-    - name: whoami-tls
-      kind: Gateway
+    - name: cilium-gateway-tls
+      namespace: network
   hostnames:
     - whoami.xmple.io
   rules:
