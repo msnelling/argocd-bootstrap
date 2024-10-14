@@ -10,9 +10,15 @@ metadata:
 spec:
   gatewayClassName: traefik
   listeners:
+    - name: http
+      port: 8000
+      protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: All
     - name: https-1
       hostname: xmple.io
-      port: 443
+      port: 8443
       protocol: HTTPS
       allowedRoutes:
         namespaces:
@@ -24,7 +30,7 @@ spec:
             name: traefik-gateway-tls
     - name: https-2
       hostname: "*.xmple.io"
-      port: 443
+      port: 8443
       protocol: HTTPS
       allowedRoutes:
         namespaces:
