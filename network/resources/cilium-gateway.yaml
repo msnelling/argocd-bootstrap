@@ -20,7 +20,8 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - kind: Secret
+          - group: ''
+            kind: Secret
             name: cilium-gateway-tls
     - name: https-2
       hostname: "*.xmple.io"
@@ -32,5 +33,6 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - kind: Secret
+          - group: ''
+            kind: Secret
             name: cilium-gateway-tls

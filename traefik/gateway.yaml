@@ -26,7 +26,8 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - kind: Secret
+          - group: ''
+            kind: Secret
             name: traefik-gateway-tls
     - name: https-2
       hostname: "*.xmple.io"
@@ -38,5 +39,6 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - kind: Secret
+          - group: ''
+            kind: Secret
             name: traefik-gateway-tls
