@@ -19,6 +19,10 @@ spec:
           port: 80
           kind: Service
       filters:
+        - type: URLRewrite
+          urlRewrite:
+            type: ReplacePrefixMatch
+            replacePrefixMatch: /
         - type: ExtensionRef
           extensionRef:
             group: traefik.io
