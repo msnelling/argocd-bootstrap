@@ -7,8 +7,12 @@ spec:
     - name: cilium-gateway
       namespace: network
   hostnames:
-    - argocd.xmple.io
+    - infra.xmple.io
   rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /argocd
     - backendRefs:
         - name: argocd-server
           port: 80
