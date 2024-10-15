@@ -6,7 +6,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`traefik.infra.xmple.io`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+    - match: Host(`traefik-lb.xmple.io`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
       kind: Rule
       services:
         - name: api@internal

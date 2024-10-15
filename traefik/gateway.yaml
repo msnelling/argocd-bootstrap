@@ -25,4 +25,6 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: traefik-gateway-tls
+          - group: ''	
+            kind: Secret	
+            name: traefik-gateway-tls
