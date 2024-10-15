@@ -16,20 +16,7 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-    - name: https-1
-      hostname: xmple.io
-      port: 8443
-      protocol: HTTPS
-      allowedRoutes:
-        namespaces:
-          from: All
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - group: ''
-            kind: Secret
-            name: traefik-gateway-tls
-    - name: https-2
+    - name: https-xmple-io
       hostname: "*.xmple.io"
       port: 8443
       protocol: HTTPS

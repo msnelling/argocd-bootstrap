@@ -2,11 +2,31 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
+  name: whoami-hostname-https-redirect
+spec:
+  parentRefs:
+    - name: traefik-gateway
+      namespace: traefik
+      sectionName: http
+      kind: Gateway
+  hostnames:
+    - whoami.xmple.io
+  rules:
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
   name: whoami-hostname
 spec:
   parentRefs:
     - name: traefik-gateway
       namespace: traefik
+      sectionName: https-xmple-io
+      kind: Gateway
   hostnames:
     - whoami.xmple.io
   rules:
