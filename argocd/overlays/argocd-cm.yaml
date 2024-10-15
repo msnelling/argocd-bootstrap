@@ -22,7 +22,7 @@ data:
         jsonPointers:
         - /webhooks/0/clientConfig/caBundle
         - /webhooks/0/failurePolicy
-  url: https://argocd.xmple.io
+  url: https://infra.xmple.io/argocd
   dex.config: |
     connectors:
     - type: github
