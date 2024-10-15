@@ -15,4 +15,6 @@ helmCharts:
     namespace: traefik
     valuesFile: values.yaml
 resources:
+  - service.yaml
   - gateway.yaml
+  - httproute.yaml

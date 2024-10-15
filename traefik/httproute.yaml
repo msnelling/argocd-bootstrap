@@ -1,19 +1,21 @@
+---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: argocd-server
+  name: traefik-dashboard
 spec:
   parentRefs:
     - name: traefik-gateway
-      namespace: traefik
+      sectionName: traefik-dashboard
+      kind: Gateway
   hostnames:
     - infra.xmple.io
   rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /argocd
+            value: /dashboard
     - backendRefs:
-        - name: argocd-server
-          port: 80
+        - name: traefik
+          port: 9000
           kind: Service

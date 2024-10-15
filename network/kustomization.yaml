@@ -6,5 +6,6 @@ labels:
     pairs:
       app.kubernetes.io/part-of: network
 resources:
+  - resources/gatewayclass.yaml
   - resources/cilium-gateway.yaml
   - resources/loadbalancer-pools.yaml
