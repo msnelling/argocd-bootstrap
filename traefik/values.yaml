@@ -3,9 +3,6 @@ logs:
     loglevel: INFO
 
 ports:
-  traefik:
-    expose: 
-      default: true
   web:
     redirectTo:
       port: websecure
