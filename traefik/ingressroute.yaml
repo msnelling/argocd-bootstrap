@@ -1,0 +1,19 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`traefik.infra.xmple.io`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+      middlewares:
+        - name: auth
+  tls:
+    secretName: traefik-gateway-tls
+    options:
+      name: mintls13

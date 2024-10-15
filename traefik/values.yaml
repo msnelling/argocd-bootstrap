@@ -15,6 +15,9 @@ ports:
     tls:
       enabled: true
 
+api:
+  dashboard: true
+
 gateway:
   enabled: false
 

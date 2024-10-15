@@ -1,4 +1,3 @@
----
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -23,17 +22,6 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - name: traefik-gateway-tls
-    - name: traefik-dashboard
-      hostname: "*.xmple.io"
-      port: 9000
-      protocol: HTTPS
-      allowedRoutes:
-        namespaces:
-          from: Same
       tls:
         mode: Terminate
         certificateRefs:
