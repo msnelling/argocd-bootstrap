@@ -21,8 +21,9 @@ spec:
       filters:
         - type: URLRewrite
           urlRewrite:
-            type: ReplacePrefixMatch
-            replacePrefixMatch: /
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
         - type: ExtensionRef
           extensionRef:
             group: traefik.io
