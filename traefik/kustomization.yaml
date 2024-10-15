@@ -17,7 +17,6 @@ helmCharts:
 resources:
   - service.yaml
   - gateway.yaml
-  - httproute.yaml
   - ingressroute.yaml
   - middleware.yaml
   - tlsoption.yaml
