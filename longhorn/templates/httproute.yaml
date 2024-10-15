@@ -12,7 +12,7 @@ spec:
   rules:
     - matches:
         - path:
-            type: PrefixPrefix
+            type: PathPrefix
             value: /longhorn
       backendRefs:
         - name: longhorn-frontend
