@@ -4,8 +4,8 @@ metadata:
   name: argocd-server
 spec:
   parentRefs:
-    - name: cilium-gateway
-      namespace: network
+    - name: traefik-gateway
+      namespace: traefik
   hostnames:
     - infra.xmple.io
   rules:
