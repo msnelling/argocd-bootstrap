@@ -23,11 +23,11 @@ ingressClass:
 
 providers:
   kubernetesIngress:
-    enabled: true
+    enabled: false
     publishedService:
       enabled: true
   kubernetesCRD:
-    enabled: true
+    enabled: false
   kubernetesGateway:
     enabled: true
     experimentalChannel: false
