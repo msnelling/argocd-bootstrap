@@ -6,4 +6,4 @@ metadata:
 spec:
   blocks:
     - start: "10.1.1.48"
-    - end: "10.1.1.51"
+    - stop: "10.1.1.51"
