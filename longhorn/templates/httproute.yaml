@@ -30,6 +30,7 @@ spec:
             group: traefik.io
             kind: Middleware
             name: forwardauth-authelia
+            namespace: traefik
 ---
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
