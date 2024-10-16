@@ -2,23 +2,8 @@
 apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
-  name: cilium-gateway
+  name: default-lb-ip-pool
 spec:
   blocks:
-    - start: "10.1.1.50"
-  serviceSelector:
-    matchLabels:
-      io.kubernetes.service.namespace: network
-      io.kubernetes.service.name: cilium-gateway-cilium-gateway
----
-apiVersion: cilium.io/v2alpha1
-kind: CiliumLoadBalancerIPPool
-metadata:
-  name: traefik-gateway
-spec:
-  blocks:
-    - start: "10.1.1.51"
-  serviceSelector:
-    matchLabels:
-      io.kubernetes.service.namespace: traefik
-      io.kubernetes.service.name: traefik-gateway
+    - start: "10.1.1.48"
+    - end: "10.1.1.51"

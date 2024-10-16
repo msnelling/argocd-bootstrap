@@ -6,9 +6,13 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
     cert-manager.io/private-key-algorithm: ECDSA
-    cert-manager.io/private-key-size: "256"
+    cert-manager.io/private-key-size: "256" 
 spec:
   gatewayClassName: cilium
+  infrastructure:
+    annotations:
+      lbipam.cilium.io/ips: "10.1.1.50"
+      lbipam.cilium.io/sharing-key: "cilium-gateway"
   listeners:
     - name: http
       port: 80
