@@ -3,16 +3,13 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: cilium-gateway
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-production
-    cert-manager.io/private-key-algorithm: ECDSA
-    cert-manager.io/private-key-size: "256" 
 spec:
   gatewayClassName: cilium
-  infrastructure:
-    annotations:
-      lbipam.cilium.io/ips: "10.1.1.50"
-      lbipam.cilium.io/sharing-key: "cilium-gateway"
+# This doesn't appear to be supported by Cilium 1.16.3
+#  infrastructure:
+#    annotations:
+#      lbipam.cilium.io/ips: "10.1.1.50"
+#      lbipam.cilium.io/sharing-key: "cilium-gateway"
   listeners:
     - name: http
       port: 80
@@ -32,4 +29,4 @@ spec:
         certificateRefs:
           - group: ''
             kind: Secret
-            name: cilium-gateway-tls
+            name: xmple-io-tls
