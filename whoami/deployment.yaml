@@ -13,8 +13,6 @@ spec:
     metadata:
       labels:
         app: whoami
-      annotations:
-        container.apparmor.security.beta.kubernetes.io/whoami: runtime/default
     spec:
       containers:
         - name: whoami

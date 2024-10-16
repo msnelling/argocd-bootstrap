@@ -16,5 +16,5 @@ spec:
   data:
     - secretKey: token
       remoteRef:
-        key: secret/k3s/cloudflare/cert-manager/issuer
+        key: secret/talos/cloudflare/cert-manager/issuer
         property: api-token

@@ -1,25 +1,22 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-db3000
+  name: network
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: applications
   destination:
-    namespace: db3000
+    namespace: network
     server: {{ .Values.spec.destination.server }}
   source:
-    path: apps
-    repoURL: https://github.com/msnelling/argocd-db3000.git
+    path: network
+    repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    managedNamespaceMetadata:
-      labels:
-         pod-security.kubernetes.io/enforce: privileged
     syncOptions:
       - CreateNamespace=true
