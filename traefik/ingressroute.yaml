@@ -14,6 +14,6 @@ spec:
       middlewares:
         - name: auth
   tls:
-    secretName: traefik-gateway-tls
+    secretName: xmple-io-tls
     options:
       name: mintls13

@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: xmple-io-tls
+  labels:
+    app.kubernetes.io/name: xmple-io
+spec:
+  secretName: xmple-io-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  dnsNames:
+    - "*.xmple.io"
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
