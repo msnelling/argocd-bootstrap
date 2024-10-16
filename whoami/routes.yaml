@@ -8,7 +8,6 @@ spec:
     - name: traefik-gateway
       namespace: traefik
       sectionName: http
-      kind: Gateway
   hostnames:
     - whoami.xmple.io
   rules:
@@ -26,7 +25,6 @@ spec:
     - name: traefik-gateway
       namespace: traefik
       sectionName: https-xmple-io
-      kind: Gateway
   hostnames:
     - whoami.xmple.io
   rules:
@@ -49,6 +47,7 @@ spec:
   parentRefs:
     - name: traefik-gateway
       namespace: traefik
+      sectionName: https-xmple-io
   hostnames:
     - infra.xmple.io
   rules:
