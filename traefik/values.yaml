@@ -12,10 +12,6 @@ ports:
     tls:
       enabled: true
 
-api:
-  dashboard: true
-  insecure: true
-
 gateway:
   enabled: false
 
@@ -37,4 +33,5 @@ providers:
     experimentalChannel: false
 
 additionalArguments:
+  - --api.insecure
   - --certificatesresolvers.tailscale-resolver.tailscale=true
