@@ -24,3 +24,10 @@ spec:
           - group: ''	
             kind: Secret	
             name: xmple-io-tls
+    - name: traefik
+      hostname: traefik-gw.xmple.io
+      port: 9000
+      protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: All
