@@ -18,10 +18,10 @@ gateway:
   enabled: false
 
 service:
-#  loadBalancerClass: io.cilium/l2-announcer
-  annotations:
-    #lbipam.cilium.io/ips: 10.1.1.48
-    lbipam.cilium.io/sharing-key: "traefik-lb"
+  loadBalancerClass: io.cilium/l2-announcer
+#  annotations:
+#    lbipam.cilium.io/ips: 10.1.1.48
+#    lbipam.cilium.io/sharing-key: "traefik-lb"
 
 ingressClass:
   name: traefik
