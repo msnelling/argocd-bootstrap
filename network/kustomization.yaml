@@ -10,3 +10,4 @@ resources:
   - resources/cilium-gateway.yaml
   - resources/loadbalancer-pools.yaml
   - resources/l2-announcement-policy.yaml
+  - resources/generic-device-plugin.yaml
