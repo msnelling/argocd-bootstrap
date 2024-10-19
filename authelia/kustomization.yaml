@@ -22,4 +22,4 @@ configMapGenerator:
   - name: authelia-config
     files:
       - config/users.yaml
-      - config/configuration.yml
+      - config/configuration.yaml
