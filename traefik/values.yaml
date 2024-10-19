@@ -37,6 +37,9 @@ providers:
     enabled: true
     experimentalChannel: false
 
+certificatesResolvers:
+  tailscale-resolver:
+    tailscale: {}:
+
 additionalArguments:
   - --api.insecure
-  - --certificatesresolvers.tailscale-resolver.tailscale=true

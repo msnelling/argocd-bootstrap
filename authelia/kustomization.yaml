@@ -4,6 +4,7 @@ labels:
   - includeSelectors: true
     pairs:
       app.kubernetes.io/part-of: authelia
+      app.kubernetes.io/managed-by: ArgoCD
 images:
   - name: docker.io/authelia/authelia
     newTag: 4.38.16
@@ -15,11 +16,10 @@ resources:
   - service.yaml
   - pv.yaml
   - certificate.yaml
-  #- ingress.yaml
-  - httproute.yaml
-  - middleware.yaml
+  - ingress.yaml
+  #- httproute.yaml
 configMapGenerator:
   - name: authelia-config
     files:
-      - users.yaml
-      - configuration.yml
+      - config/users.yaml
+      - config/configuration.yml
