@@ -30,7 +30,7 @@ providers:
     publishedService:
       enabled: true
   kubernetesCRD:
-    enabled: false
+    enabled: true
   kubernetesGateway:
     enabled: true
     experimentalChannel: false

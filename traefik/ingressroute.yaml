@@ -12,7 +12,7 @@ spec:
         - name: api@internal
           kind: TraefikService
       middlewares:
-        - name: auth
+        - name: forwardauth-authelia
   tls:
     secretName: xmple-io-tls
     options:
