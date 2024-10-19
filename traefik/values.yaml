@@ -1,7 +1,9 @@
 logs:
   general:
-    loglevel: INFO
-
+    loglevel: DEBUG
+  access:
+    enabled: true
+    
 ports:
   web:
     redirectTo:
