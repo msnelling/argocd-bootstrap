@@ -1,6 +1,6 @@
 logs:
   general:
-    loglevel: DEBUG
+    level: DEBUG
   access:
     enabled: true
     
