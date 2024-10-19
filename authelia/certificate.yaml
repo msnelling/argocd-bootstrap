@@ -13,5 +13,5 @@ spec:
   dnsNames:
     - auth.xmple.io
   issuerRef:
-    name: letsencrypt-production
+    name: letsencrypt-staging
     kind: ClusterIssuer

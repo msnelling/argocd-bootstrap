@@ -12,7 +12,7 @@ spec:
   dnsNames:
     - grafana.k3s.xmple.io
   issuerRef:
-    name: letsencrypt-production
+    name: letsencrypt-staging
     kind: ClusterIssuer
 ---
 apiVersion: traefik.io/v1alpha1
