@@ -39,7 +39,7 @@ providers:
 
 certificatesResolvers:
   tailscale-resolver:
-    tailscale: {}:
+    tailscale: {}
 
 additionalArguments:
   - --api.insecure
