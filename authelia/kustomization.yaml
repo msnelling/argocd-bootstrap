@@ -16,8 +16,8 @@ resources:
   - service.yaml
   - pv.yaml
   - certificate.yaml
-  - ingress.yaml
-  #- httproute.yaml
+  #- ingress.yaml
+  - httproute.yaml
 configMapGenerator:
   - name: authelia-config
     files:

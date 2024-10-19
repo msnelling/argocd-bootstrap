@@ -6,7 +6,7 @@ metadata:
     app.kubernetes.io/name: authelia
 spec:
   parentRefs:
-    - name: cilium-gateway
+    - name: traefik-gateway
       namespace: network
   hostnames:
     - auth.xmple.io
