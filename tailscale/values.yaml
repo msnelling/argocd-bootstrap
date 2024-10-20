@@ -1,0 +1,6 @@
+operatorConfig:
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - ALL
