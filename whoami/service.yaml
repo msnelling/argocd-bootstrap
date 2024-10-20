@@ -6,6 +6,7 @@ metadata:
     app.kubernetes.io/name: whoami
     tailscale.com/proxy-class: tun-access
   annotations:
+    tailscale.com/expose: "true"
     tailscale.com/hostname: whoami
 spec:
   ports:
