@@ -1,13 +1,6 @@
-kubeEtcd:
-  enabled: false
-kubeControllerManager:
-  enabled: false
-kubeScheduler:
-  enabled: false
-  
 grafana:
   grafana.ini:
     server:
-      domain: grafana.k3s.xmple.io
+      domain: infra.example.com/grafana
   plugins:
     - grafana-piechart-panel

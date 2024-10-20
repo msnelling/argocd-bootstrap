@@ -1,0 +1,22 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: grafana
+  labels:
+    app.kubernetes.io/name: grafana
+spec:
+  parentRefs:
+    - name: traefik-gateway
+      namespace: traefik
+      sectionName: https-xmple-io
+  hostnames:
+    - infra.xmple.io/grafana
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /grafana
+      backendRefs:
+        - name: prometheus-grafana
+          port: 80
+          kind: Service
