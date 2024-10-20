@@ -10,7 +10,7 @@ spec:
       namespace: traefik
       sectionName: https-xmple-io
   hostnames:
-    - infra.xmple.io/grafana
+    - infra.xmple.io
   rules:
     - matches:
         - path:
