@@ -1,25 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: tailscale-operator
+  name: network
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
   destination:
-    namespace: tailscale
+    namespace: network
     server: {{ .Values.spec.destination.server }}
   source:
-    path: tailscale
+    path: network
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    managedNamespaceMetadata:
-      labels:
-         pod-security.kubernetes.io/enforce: privileged
-    syncOptions:
-      - CreateNamespace=true

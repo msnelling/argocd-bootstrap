@@ -58,7 +58,7 @@ spec:
           configMap:
             name: authelia-config
             items:
-              - key: configuration.yml
+              - key: configuration.yaml
                 path: configuration.yml
               - key: users.yaml
                 path: users.yaml

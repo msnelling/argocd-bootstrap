@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami-ts
+spec:
+  ingressClassName: tailscale
+  defaultBackend:
+    service:
+      name: whoami
+      port:
+        name: https
+  tls:
+    - hosts:
+        - whoami

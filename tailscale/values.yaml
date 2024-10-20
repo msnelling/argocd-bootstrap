@@ -1,0 +1,7 @@
+operatorConfig:
+  hostname: tailscale-operator
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - ALL

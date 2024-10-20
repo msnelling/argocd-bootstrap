@@ -1,0 +1,33 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: traefik-gateway
+spec:
+  gatewayClassName: traefik
+  listeners:
+    - name: http
+      port: 8000
+      protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: All
+    - name: https-xmple-io
+      hostname: "*.xmple.io"
+      port: 8443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: All
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - group: ''	
+            kind: Secret	
+            name: xmple-io-tls
+    - name: traefik
+      hostname: traefik-gw.xmple.io
+      port: 9000
+      protocol: HTTP
+      allowedRoutes:
+        namespaces:
+          from: All
