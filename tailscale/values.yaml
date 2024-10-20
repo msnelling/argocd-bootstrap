@@ -5,7 +5,3 @@ operatorConfig:
     capabilities:
       drop:
         - ALL
-  podSecurityContext:
-    runAsNonRoot: true
-    seccompProfile:
-      type: RuntimeDefault
