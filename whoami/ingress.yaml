@@ -3,12 +3,12 @@ kind: Ingress
 metadata:
   name: whoami-ts
 spec:
+  ingressClassName: tailscale
   defaultBackend:
     service:
       name: whoami
       port:
-        number: 80
-  ingressClassName: tailscale
+        name: https
   tls:
     - hosts:
         - whoami
