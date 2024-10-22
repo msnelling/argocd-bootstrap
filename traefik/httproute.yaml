@@ -21,9 +21,3 @@ spec:
         - name: traefik
           port: 9000
           kind: Service
-      filters:
-        - type: ExtensionRef
-          extensionRef:
-            group: traefik.io
-            kind: Middleware
-            name: forwardauth-authelia
