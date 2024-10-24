@@ -2,6 +2,6 @@ grafana:
   grafana.ini:
     server:
       domain: infra.xmple.com
-      root_url: https://infra.xmple.com/grafana
+      root_url: '%(protocol)s://%(domain)s:%(http_port)s/grafana/'
   plugins:
     - grafana-piechart-panel
