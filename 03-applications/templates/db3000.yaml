@@ -13,7 +13,7 @@ spec:
   source:
     path: apps
     repoURL: https://github.com/msnelling/argocd-db3000.git
-    targetRevision: talos
+    targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated:
       prune: true
