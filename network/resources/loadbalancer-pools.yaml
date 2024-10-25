@@ -1,0 +1,48 @@
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: cilium-lb
+spec:
+  blocks:
+    - start: "10.1.1.49"
+  serviceSelector:
+    matchLabels:
+      io.kubernetes.service.namespace: kube-system
+      io.kubernetes.service.name: cilium-ingress
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: cilium-gw
+spec:
+  blocks:
+    - start: "10.1.1.50"
+  serviceSelector:
+    matchLabels:
+      io.kubernetes.service.namespace: kube-system
+      io.kubernetes.service.name: cilium-gateway-cilium-gateway
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: traefik-lb
+spec:
+  blocks:
+    - start: "10.1.1.48"
+  serviceSelector:
+    matchLabels:
+      io.kubernetes.service.namespace: traefik
+      io.kubernetes.service.name: traefik
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: traefik-gw
+spec:
+  blocks:
+    - start: "10.1.1.51"
+  serviceSelector:
+    matchLabels:
+      io.kubernetes.service.namespace: traefik
+      io.kubernetes.service.name: traefik-gateway

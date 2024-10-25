@@ -1,0 +1,45 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: longhorn
+spec:
+  parentRefs:
+    - name: traefik-gateway
+      namespace: traefik
+      sectionName: https-xmple-io
+  hostnames:
+    - infra.xmple.io
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /longhorn
+      backendRefs:
+        - name: longhorn-frontend
+          port: 80
+          kind: Service
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+        - type: ExtensionRef
+          extensionRef:
+            group: traefik.io
+            kind: Middleware
+            name: forwardauth-authelia
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: forwardauth-authelia
+spec:
+  forwardAuth:
+    address: http://authelia.authelia.svc.cluster.local/api/verify?rd=https%3A%2F%2Fauth.xmple.io%2F
+    authResponseHeaders:
+      - Remote-User
+      - Remote-Name
+      - Remote-Email
+      - Remote-Groups

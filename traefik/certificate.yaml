@@ -1,17 +1,15 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: authelia-tls
-  labels:
-    app.kubernetes.io/name: authelia
+  name: xmple-io-tls
 spec:
-  secretName: authelia-tls
+  secretName: xmple-io-tls
   privateKey:
     algorithm: ECDSA
     size: 256
     rotationPolicy: Always
   dnsNames:
-    - auth.xmple.io
+    - "*.xmple.io"
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer

@@ -1,10 +1,10 @@
 logs:
   general:
-    loglevel: INFO
+    level: DEBUG
+  access:
+    enabled: true
+    
 ports:
-  traefik:
-    expose: 
-      default: true
   web:
     redirectTo:
       port: websecure
@@ -13,14 +13,33 @@ ports:
       enabled: true
     tls:
       enabled: true
+
+gateway:
+  enabled: false
+
 service:
-  annotations:
-    kube-vip.io/loadbalancerIPs: 10.1.1.48
+  loadBalancerClass: io.cilium/l2-announcer
+#  annotations:
+#    lbipam.cilium.io/ips: 10.1.1.48
+#    lbipam.cilium.io/sharing-key: "traefik-lb"
+
 ingressClass:
   name: traefik
+
 providers:
   kubernetesIngress:
+    enabled: false
     publishedService:
       enabled: true
+  kubernetesCRD:
+    enabled: true
+  kubernetesGateway:
+    enabled: true
+    experimentalChannel: false
+
+certificatesResolvers:
+  tailscale-resolver:
+    tailscale: {}
+
 additionalArguments:
-  - --certificatesresolvers.tailscale-resolver.tailscale=true
+  - --api.insecure
