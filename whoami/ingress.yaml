@@ -10,7 +10,7 @@ spec:
     service:
       name: whoami
       port:
-        name: https
+        name: web
   tls:
     - hosts:
         - whoami
