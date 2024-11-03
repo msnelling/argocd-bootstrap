@@ -2,6 +2,9 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: whoami-ts
+  labels:
+    app.kubernetes.io/name: whoami
+    tailscale.com/proxy-class: tun-access
   annotations:
     tailscale.com/hostname: whoami-ts
 spec:
