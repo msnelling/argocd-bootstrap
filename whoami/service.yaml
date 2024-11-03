@@ -8,6 +8,7 @@ metadata:
   annotations:
     tailscale.com/expose: "true"
     tailscale.com/hostname: whoami
+    tailscale.com/tags: tag:whoami
 spec:
   ports:
     - protocol: TCP

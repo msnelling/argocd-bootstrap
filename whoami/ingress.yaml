@@ -5,6 +5,8 @@ metadata:
   labels:
     app.kubernetes.io/name: whoami
     tailscale.com/proxy-class: tun-access
+  annotations:
+    tailscale.com/tags: tag:whoami
 spec:
   ingressClassName: tailscale
   defaultBackend:
