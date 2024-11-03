@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: whoami-ts
+  annotations:
+    tailscale.com/hostname: whoami-ts
 spec:
   ingressClassName: tailscale
   defaultBackend:
