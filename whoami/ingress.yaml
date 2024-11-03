@@ -11,7 +11,7 @@ spec:
     service:
       name: whoami
       port:
-        name: web
+        number: 80
   tls:
     - hosts:
         - whoami-ts
