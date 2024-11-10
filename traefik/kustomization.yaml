@@ -18,6 +18,6 @@ resources:
   - service.yaml
   - gateway.yaml
   - ingressroute.yaml
-  #- httproute.yaml
+  - httproute.yaml
   - middleware.yaml
   - tlsoption.yaml
