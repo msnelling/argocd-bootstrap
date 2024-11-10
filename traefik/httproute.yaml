@@ -6,7 +6,7 @@ spec:
   parentRefs:
     - name: traefik-gateway
       namespace: traefik
-      sectionName: traefik
+      sectionName: https-xmple-io
   hostnames:
     - traefik-gw.xmple.io
   rules:
