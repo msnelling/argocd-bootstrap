@@ -19,5 +19,5 @@ spec:
             value: /dashboard
       backendRefs:
         - name: traefik
-          port: 9000
+          port: 8080
           kind: Service
