@@ -16,16 +16,3 @@ spec:
       targetPort: 8443
       protocol: TCP
   type: LoadBalancer
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: traefik-dashboard
-spec:
-  selector:
-    app.kubernetes.io/name: traefik
-  ports:
-    - name: http
-      port: 80
-      targetPort: 8080
-      protocol: TCP
