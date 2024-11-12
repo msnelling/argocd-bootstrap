@@ -11,6 +11,6 @@ spec:
     - traefik-gw.xmple.io
   rules:
     - backendRefs:
-        - name: traefik
-          port: 8080
+        - name: traefik-dashboard
+          port: 80
           kind: Service
