@@ -11,7 +11,8 @@ spec:
     - traefik-gw.xmple.io
   rules:
     - backendRefs:
-        - group: traefik.containo.us
+        - group: traefik.io
           kind: TraefikService
           name: api@internal
           port: 80
+          
