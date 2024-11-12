@@ -10,14 +10,7 @@ spec:
   hostnames:
     - traefik-gw.xmple.io
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /api
-        - path:
-            type: PathPrefix
-            value: /dashboard
-      backendRefs:
+    - backendRefs:
         - name: traefik
           port: 8080
           kind: Service
