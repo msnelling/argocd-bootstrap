@@ -7,7 +7,7 @@ spec:
     - name: traefik-gateway
       #group: gateway.networking.k8s.io
       #kind: Gateway
-      #namespace: traefik
+      namespace: traefik
       sectionName: https-xmple-io
   hostnames:
     - traefik-gw.xmple.io
