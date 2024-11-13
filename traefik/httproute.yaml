@@ -4,10 +4,10 @@ metadata:
   name: traefik-dashboard
 spec:
   parentRefs:
-    - group: gateway.networking.k8s.io
-      kind: Gateway
-      name: traefik-gateway
-      namespace: traefik
+    - name: traefik-gateway
+      #group: gateway.networking.k8s.io
+      #kind: Gateway
+      #namespace: traefik
       sectionName: https-xmple-io
   hostnames:
     - traefik-gw.xmple.io
@@ -21,5 +21,4 @@ spec:
           kind: TraefikService
           name: api@internal
           port: 80
-          weight: 1
           
