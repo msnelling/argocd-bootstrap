@@ -31,6 +31,7 @@ gitea:
 
   persistence:
     volumeName: gitea-shared-storage
+    storageClass: longhorn-gitea
 
   postgresql:
     enabled: false
