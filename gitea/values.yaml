@@ -2,7 +2,7 @@ gitea:
   gitea:
     config:
       server:
-        domain: gitea.xmple.io
+        DOMAIN: gitea.xmple.io
       database:
         db_type: postgres
     additionalConfigFromEnvs:
@@ -26,10 +26,8 @@ gitea:
           secretKeyRef:
             name: postgres-secret
             key: password
-
-  serviceAccount:
-    create: true
-    name: gitea
+    admin:
+      existingSecret: admin-secret
 
   postgresql:
     enabled: false
