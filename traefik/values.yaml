@@ -1,8 +1,8 @@
 logs:
   general:
-    level: DEBUG
+    level: INFO
   access:
-    enabled: true
+    enabled: false
     
 ports:
   web:
