@@ -26,9 +26,10 @@ gitea:
           secretKeyRef:
             name: postgres-secret
             key: password
-    serviceAccount:
-      create: true
-      name: gitea
+
+  serviceAccount:
+    create: true
+    name: gitea
 
   postgresql:
     enabled: false
