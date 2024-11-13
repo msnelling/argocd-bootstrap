@@ -3,7 +3,7 @@ gitea:
     config:
       database:
         db_type: postgres
-    additionalConfigSources:
+    additionalConfigFromEnvs:
       - name: GITEA__DATABASE__HOST
         valueFrom:
           secretKeyRef:
