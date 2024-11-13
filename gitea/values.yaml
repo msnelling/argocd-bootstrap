@@ -1,0 +1,32 @@
+gitea:
+  gitea:
+    config:
+      database:
+        db_type: postgres
+    additionalConfigSources:
+      - name: GITEA__DATABASE__HOST
+        valueFrom:
+          secretKeyRef:
+            name: postgres-secret
+            key: host
+      - name: GITEA__DATABASE__NAME
+        valueFrom:
+          secretKeyRef:
+            name: postgres-secret
+            key: database
+      - name: GITEA__DATABASE__USER
+        valueFrom:
+          secretKeyRef:
+            name: postgres-secret
+            key: username
+      - name: GITEA__DATABASE__PASSWD
+        valueFrom:
+          secretKeyRef:
+            name: postgres-secret
+            key: password
+
+  postgresql:
+    enabled: false
+
+  postgresql-ha:
+    enabled: false

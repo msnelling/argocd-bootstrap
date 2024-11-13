@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gitea-tls
+  labels:
+    app.kubernetes.io/name: gitea
+spec:
+  secretName: gitea-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  dnsNames:
+    - gitea.xmple.io
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
