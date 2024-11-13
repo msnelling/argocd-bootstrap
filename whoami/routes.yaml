@@ -11,7 +11,11 @@ spec:
   hostnames:
     - whoami.xmple.io
   rules:
-    - backendRefs:
+    - matches:
+        - path:
+            type: Path
+            value: /
+      backendRefs:
         - name: whoami
           port: 80
           kind: Service
