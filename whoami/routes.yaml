@@ -13,7 +13,7 @@ spec:
   rules:
     - matches:
         - path:
-            type: Path
+            type: PathPrefix
             value: /
       backendRefs:
         - name: whoami
