@@ -86,8 +86,6 @@ gitlab:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: websecure
           traefik.ingress.kubernetes.io/router.tls: 'true'      
-          cfargotunnel.com/cluster-tunnel: k3s-xmple-io
-          cfargotunnel.com/fqdn: gitlab.xmple.io
     gitaly:
       persistence:
         volumeName: gitlab-gitaly
