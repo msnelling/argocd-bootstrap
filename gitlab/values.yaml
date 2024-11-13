@@ -135,7 +135,6 @@ gitlab:
     master:
       persistence:
         volumeName: gitlab-redis-master
-        storageClass: longhorn-gitlab
   
   # https://gitlab.com/gitlab-org/charts/gitlab/-/tree/master/charts/nginx-ingress
   nginx-ingress:

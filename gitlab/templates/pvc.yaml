@@ -20,7 +20,7 @@ metadata:
   labels:
     app.kubernetes.io/name: gitlab
 spec:
-  storageClassName: local-path
+  storageClassName: longhorn-gitlab
   accessModes:
     - ReadWriteOnce
   resources:
