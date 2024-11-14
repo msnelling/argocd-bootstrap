@@ -31,8 +31,6 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: /config
-            - name: dbvolume
-              mountPath: /var/lib/authelia
           resources:
             limits: 
               cpu: "4"
@@ -51,9 +49,6 @@ spec:
               port: http
               scheme: HTTP
       volumes:
-        - name: dbvolume
-          persistentVolumeClaim:
-            claimName: authelia-db
         - name: config-volume
           configMap:
             name: authelia-config
