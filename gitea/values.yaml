@@ -1,40 +1,20 @@
 gitea:
   gitea:
-    config:
-      server:
-        DOMAIN: gitea.xmple.io
-        ROOT_URL: https://gitea.xmple.io/
-      database:
-        db_type: postgres
-      migrations:
-        ALLOW_LOCALNETWORKS: true
-    additionalConfigFromEnvs:
-      - name: GITEA__DATABASE__HOST
-        valueFrom:
-          secretKeyRef:
-            name: gitea-postgres-secret
-            key: host
-      - name: GITEA__DATABASE__NAME
-        valueFrom:
-          secretKeyRef:
-            name: gitea-postgres-secret
-            key: database
-      - name: GITEA__DATABASE__USER
-        valueFrom:
-          secretKeyRef:
-            name: gitea-postgres-secret
-            key: username
-      - name: GITEA__DATABASE__PASSWD
-        valueFrom:
-          secretKeyRef:
-            name: gitea-postgres-secret
-            key: password
+    additionalConfigSources:
+      - configMap:
+        name: gitea-app-ini
+      - secret:
+        name: gitea-app-ini-secret
     admin:
       existingSecret: gitea-admin-secret
     oauth:
-      - name: Github
+      - name: github
         provider: github
         existingSecret: gitea-oauth2-secret
+
+  deployment:
+    annotations:
+      reloader.stakater.com/auto: "true"
 
   persistence:
     volumeName: gitea-shared-storage

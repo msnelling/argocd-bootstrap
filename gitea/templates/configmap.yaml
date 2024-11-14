@@ -1,0 +1,14 @@
+piVersion: v1
+kind: ConfigMap
+metadata:
+  name: gitea-app-ini
+data:
+  server: |
+    DOMAIN=gitea.xmple.io
+    ROOT_URL=https://gitea.xmple.io/
+  service: |
+    DISABLE_REGISTRATION=true
+  migrations: |
+    ALLOW_LOCALNETWORKS=true
+  oauth2_client: |
+    ACCOUNT_LINKING=login
