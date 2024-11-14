@@ -14,7 +14,7 @@ resources:
   - secrets.yaml
   - deployment.yaml
   - service.yaml
-  - pv.yaml
+  #- pv.yaml
   - certificate.yaml
   #- ingress.yaml
   - httproute.yaml
