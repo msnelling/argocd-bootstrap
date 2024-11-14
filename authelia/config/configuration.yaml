@@ -962,9 +962,9 @@ storage:
   ##
   ## Important: Kubernetes (or HA) users must read https://www.authelia.com/t/statelessness
   ##
-  local:
+  #local:
     ## Path to the SQLite3 Database.
-    path: /var/lib/authelia/db.sqlite3
+    # path: /var/lib/authelia/db.sqlite3
 
   ##
   ## MySQL / MariaDB (Storage Provider)
@@ -1049,25 +1049,25 @@ storage:
   ##
   ## PostgreSQL (Storage Provider)
   ##
-  # postgres:
+  postgres:
     ## The address of the PostgreSQL server to connect to in the address common syntax.
     ## Format: [<scheme>://]<hostname>[:<port>].
     ## Square brackets indicate optional portions of the format. Scheme must be 'tcp', 'tcp4', 'tcp6', or 'unix`.
     ## The default scheme is 'unix' if the address is an absolute path otherwise it's 'tcp'. The default port is '5432'.
-    # address: 'tcp://127.0.0.1:5432'
+    address: 'tcp://10.1.1.30:5432'
 
     ## The database name to use.
-    # database: 'authelia'
+    database: 'authelia'
 
     ## The schema name to use.
     # schema: 'public'
 
     ## The username used for SQL authentication.
-    # username: 'authelia'
+    username: 'authelia'
 
     ## The password used for SQL authentication.
     ## Can also be set using a secret: https://www.authelia.com/c/secrets
-    # password: 'mypassword'
+    password: 'supplied by vault'
 
     ## The connection timeout in the duration common syntax.
     # timeout: '5 seconds'
