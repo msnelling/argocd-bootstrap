@@ -6,6 +6,8 @@ gitea:
         ROOT_URL: https://gitea.xmple.io/
       database:
         db_type: postgres
+      migrations:
+        ALLOW_LOCALNETWORKS: true
     additionalConfigFromEnvs:
       - name: GITEA__DATABASE__HOST
         valueFrom:
