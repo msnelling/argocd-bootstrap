@@ -1173,7 +1173,7 @@ notifier:
     ## The sender is used to is used for the MAIL FROM command and the FROM header.
     ## If this is not defined and the username is an email, we use the username as this value. This can either be just
     ## an email address or the RFC5322 'Name <email address>' format.
-    sender: 'Authelia <db3000@xmple.io>'
+    sender: 'Authelia <noreply@xmple.io>'
 
     ## HELO/EHLO Identifier. Some SMTP Servers may reject the default of localhost.
     # identifier: 'localhost'
