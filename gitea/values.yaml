@@ -8,9 +8,6 @@ gitea:
         db_type: postgres
       migrations:
         ALLOW_LOCALNETWORKS: true
-      oauth:
-        - name: Github
-          existingSecret: gitea-oauth2-secret
     additionalConfigFromEnvs:
       - name: GITEA__DATABASE__HOST
         valueFrom:
@@ -34,6 +31,9 @@ gitea:
             key: password
     admin:
       existingSecret: gitea-admin-secret
+    oauth:
+      - name: Github
+        existingSecret: gitea-oauth2-secret
 
   persistence:
     volumeName: gitea-shared-storage
