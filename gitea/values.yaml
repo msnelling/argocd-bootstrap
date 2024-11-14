@@ -33,6 +33,7 @@ gitea:
       existingSecret: gitea-admin-secret
     oauth:
       - name: Github
+        provider: github
         existingSecret: gitea-oauth2-secret
 
   persistence:
