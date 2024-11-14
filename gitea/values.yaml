@@ -2,9 +2,9 @@ gitea:
   gitea:
     additionalConfigSources:
       - configMap:
-        name: gitea-app-ini
+          name: gitea-app-ini
       - secret:
-        name: gitea-app-ini-secret
+          secretName: gitea-app-ini-secret
     admin:
       existingSecret: gitea-admin-secret
     oauth:
