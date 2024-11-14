@@ -9,6 +9,6 @@ data:
   service: |
     DISABLE_REGISTRATION=true
   migrations: |
-    ALLOW_LOCALNETWORKS=true
+    ALLOWED_DOMAINS=*.xmple.io
   oauth2_client: |
     ACCOUNT_LINKING=login
