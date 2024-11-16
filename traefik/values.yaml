@@ -13,17 +13,14 @@ ports:
       enabled: true
     tls:
       enabled: true
-
   gitlab-ssh: 
     expose: true
     port: 50022
     exposedPort: 50022
-
   gitaly-ssh: 
     expose: true
     port: 51022
     exposedPort: 51022
-
 
 gateway:
   enabled: false

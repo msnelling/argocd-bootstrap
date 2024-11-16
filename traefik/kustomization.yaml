@@ -10,10 +10,11 @@ helmCharts:
     repo: https://helm.traefik.io/traefik
     releaseName: traefik
     version: 33.0.0
-    includeCRDs: true
+    includeCRDs: false
     namespace: traefik
     valuesFile: values.yaml
 resources:
+  - https://raw.githubusercontent.com/traefik/traefik-helm-chart/refs/tags/v33.0.0/traefik/crds/kustomization.yaml
   - certificate.yaml
   - service.yaml
   - gateway.yaml
