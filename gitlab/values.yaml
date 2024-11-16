@@ -154,6 +154,7 @@ gitlab:
     #fullnameOverride: traefik-gitlab
     ingressClass:
       enabled: true
+      name: $releaseName-traefik
       fallbackApiVersion: v1
     service:
       loadBalancerClass: io.cilium/l2-announcer
