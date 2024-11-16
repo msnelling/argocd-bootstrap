@@ -17,8 +17,11 @@ gitlab:
         key: gitlab-password
     ingress:
       enabled: true
-      class: cilium
-      provider: cilium
+      class: $releaseName-traefik
+      provider: traefik
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
       configureCertmanager: false
       tls:
         enabled: true
@@ -81,11 +84,6 @@ gitlab:
           - secret: gitlab-github-oauth2
 
   gitlab:
-    webservice:
-      ingress:
-        annotations:
-          traefik.ingress.kubernetes.io/router.entrypoints: websecure
-          traefik.ingress.kubernetes.io/router.tls: 'true'      
     gitaly:
       persistence:
         volumeName: gitlab-gitaly
@@ -100,9 +98,9 @@ gitlab:
             secret: gitlab-s3cmd-config
             key: config
     gitlab-shell:
-      service:
-        type: LoadBalancer
-        loadBalancerIP: 10.1.1.49
+      traefik:
+        entrypoint: gitlab-shell
+
 #    runner:
 #      registrationToken:
 #        secret: gitlab-gitlab-runner-secret
@@ -148,3 +146,14 @@ gitlab:
   # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
   prometheus:
     install: false
+
+  traefik:
+    install: true
+    # Ensure the IngressClass name and `global.ingress.class` value match.
+    # This can be removed if `global.ingress.class` is set to `$releaseName-traefik`.
+    #fullnameOverride: traefik-gitlab
+    ingressClass:
+      enabled: true
+      fallbackApiVersion: v1
+    service:
+      loadBalancerClass: io.cilium/l2-announcer
