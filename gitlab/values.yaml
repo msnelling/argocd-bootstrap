@@ -17,7 +17,7 @@ gitlab:
         key: gitlab-password
     ingress:
       enabled: true
-      class: $releaseName-traefik
+      class: gitlab-traefik
       provider: traefik
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -154,7 +154,7 @@ gitlab:
     #fullnameOverride: traefik-gitlab
     ingressClass:
       enabled: true
-      name: $releaseName-traefik
+      name: gitlab-traefik
       fallbackApiVersion: v1
     service:
       loadBalancerClass: io.cilium/l2-announcer
