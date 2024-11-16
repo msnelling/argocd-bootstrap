@@ -17,7 +17,7 @@ gitlab:
         key: gitlab-password
     ingress:
       enabled: true
-      class: gitlab-traefik
+      class: traefik
       provider: traefik
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
@@ -99,7 +99,7 @@ gitlab:
             key: config
     gitlab-shell:
       traefik:
-        entrypoint: gitlab-shell
+        entrypoint: gitlab-ssh
 
 #    runner:
 #      registrationToken:
@@ -146,15 +146,3 @@ gitlab:
   # https://github.com/prometheus-community/helm-charts/blob/main/charts/prometheus/values.yaml
   prometheus:
     install: false
-
-  traefik:
-    install: true
-    # Ensure the IngressClass name and `global.ingress.class` value match.
-    # This can be removed if `global.ingress.class` is set to `$releaseName-traefik`.
-    #fullnameOverride: traefik-gitlab
-    ingressClass:
-      enabled: true
-      name: gitlab-traefik
-      fallbackApiVersion: v1
-    service:
-      loadBalancerClass: io.cilium/l2-announcer
