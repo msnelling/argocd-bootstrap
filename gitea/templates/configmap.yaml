@@ -12,3 +12,9 @@ data:
     ALLOWED_DOMAINS=*.xmple.io
   oauth2_client: |
     ACCOUNT_LINKING=login
+  mailer: |
+    ENABLED=true
+    SMTP_ADDR=smtp.mail.me.com
+    SMTP_PORT=587
+    PROTOCOL=smtp+starttls
+    FROM="Gitea" <noreply@xmple.io>
