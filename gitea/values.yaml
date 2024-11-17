@@ -23,6 +23,7 @@ gitea:
   persistence:
     volumeName: gitea-shared-storage
     storageClass: longhorn-gitea
+    accessMode: ReadWriteMany
 
   postgresql:
     enabled: false
