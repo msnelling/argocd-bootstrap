@@ -6,6 +6,7 @@ data:
   server: |
     DOMAIN=gitea.xmple.io
     ROOT_URL=https://gitea.xmple.io/
+    SSH_DOMAIN=gitea.xmple.io
   service: |
     DISABLE_REGISTRATION=true
   migrations: |
@@ -18,3 +19,5 @@ data:
     SMTP_PORT=587
     PROTOCOL=smtp+starttls
     FROM="Gitea" <noreply@xmple.io>
+  ssh.minimum_key_sizes: |
+    RSA=2048
