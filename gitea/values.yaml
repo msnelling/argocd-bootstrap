@@ -12,6 +12,9 @@ gitea:
         provider: github
         existingSecret: gitea-oauth2-secret
 
+  strategy:
+    type: Recreate
+
   deployment:
     annotations:
       reloader.stakater.com/auto: "true"
