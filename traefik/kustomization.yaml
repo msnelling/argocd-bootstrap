@@ -14,7 +14,7 @@ helmCharts:
     namespace: traefik
     valuesFile: values.yaml
 resources:
-  - https://github.com/traefik/traefik-helm-chart//traefik/crds/?ref=v33.1.0
+  - https://github.com/traefik/traefik-helm-chart//traefik/crds/?ref=v33.2.0
   - certificate.yaml
   - service.yaml
   - gateway.yaml
