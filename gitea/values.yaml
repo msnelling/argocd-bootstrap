@@ -1,5 +1,8 @@
 gitea:
   gitea:
+    image:
+      tag: 1.23.1
+
     additionalConfigSources:
       - configMap:
           name: gitea-app-ini
