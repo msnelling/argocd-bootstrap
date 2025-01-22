@@ -7,12 +7,12 @@ labels:
       app.kubernetes.io/part-of: traefik
 helmCharts:
   - name: traefik-crds
-    repo: https://helm.traefik.io/charts
+    repo: https://traefik.github.io/charts
     releaseName: traefik-crds
     version:  1.2.0
     includeCRDs: true
   - name: traefik
-    repo: https://helm.traefik.io/charts
+    repo: https://traefik.github.io/charts
     releaseName: traefik
     version: 34.1.0
     includeCRDs: false
