@@ -6,6 +6,11 @@ labels:
     pairs:
       app.kubernetes.io/part-of: traefik
 helmCharts:
+  - name: traefik-crds
+    repo: https://helm.traefik.io/traefik-crds
+    releaseName: traefik-crds
+    version: 34.1.0
+    includeCRDs: true
   - name: traefik
     repo: https://helm.traefik.io/traefik
     releaseName: traefik
@@ -14,7 +19,6 @@ helmCharts:
     namespace: traefik
     valuesFile: values.yaml
 resources:
-  - https://github.com/traefik/traefik-helm-chart//traefik/crds/?ref=v34.1.0
   - certificate.yaml
   - service.yaml
   - gateway.yaml
