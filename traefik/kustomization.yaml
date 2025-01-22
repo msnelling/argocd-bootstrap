@@ -9,7 +9,7 @@ helmCharts:
   - name: traefik-crds
     repo: https://helm.traefik.io/traefik
     releaseName: traefik-crds
-    version: 34.1.0
+    version:  1.2.0
     includeCRDs: true
   - name: traefik
     repo: https://helm.traefik.io/traefik
