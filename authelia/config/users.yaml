@@ -7,3 +7,11 @@ users:
     groups:
       - admin
       - db3000
+  mike:
+    disabled: false
+    displayname: Mike
+    email: clamber.dine-4w@icloud.com
+    password: "$argon2id$v=19$m=65536,t=3,p=4$rt5cibZgMJLRSs+irdvhvA$odLl0sfGcKtus5sx/bIqw0iL7VHVYBddvHUp63Y0Qeg"
+    groups:
+      - admin
+      - db3000
