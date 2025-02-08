@@ -5,8 +5,8 @@ metadata:
   name: whoami-hostname
 spec:
   parentRefs:
-    - name: traefik-gateway
-      namespace: traefik
+    - name: cilium-gateway
+      namespace: kube-system
       sectionName: https-xmple-io
   hostnames:
     - whoami.xmple.io
