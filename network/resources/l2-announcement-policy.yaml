@@ -7,5 +7,5 @@ metadata:
 spec:
   interfaces:
     - eth0
-  externalIPs: true
+  externalIPs: false
   loadBalancerIPs: true
