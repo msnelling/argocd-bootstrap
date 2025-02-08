@@ -7,7 +7,7 @@ labels:
       app.kubernetes.io/part-of: cilium
 resources:
   - resources/certificate.yaml
-  #- resources/cilium-gateway.yaml
+  - resources/cilium-gateway.yaml
   - resources/loadbalancer-pools.yaml
   - resources/l2-announcement-policy.yaml
   - resources/generic-device-plugin.yaml
