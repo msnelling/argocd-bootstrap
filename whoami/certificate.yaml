@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: whoami-tls
+spec:
+  secretName: whoami-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  dnsNames:
+    - whoami.xmple.io
+    - whoami-cilium-ingress.xmple.io
+    - whoami-traefik-ingress.xmple.io
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer

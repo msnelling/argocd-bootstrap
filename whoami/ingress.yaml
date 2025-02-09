@@ -1,11 +1,33 @@
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: whoami-ts
+  name: whoami-cilium
+  labels:
+    app.kubernetes.io/name: whoami
+  annotations:
+spec:
+  ingressClassName: cilium
+  defaultBackend:
+    service:
+      name: whoami
+      port:
+        number: 80
+  tls:
+    - secretName: whoami-tls
+      hosts:
+        - whoami-cilium-ingress.xmple.io
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami-tailscale
   labels:
     app.kubernetes.io/name: whoami
     tailscale.com/proxy-class: tun-access
   annotations:
+    tailscale.com/expose: "true"
+    tailscale.com/hostname: whoami-ingress
     tailscale.com/tags: tag:whoami
 spec:
   ingressClassName: tailscale

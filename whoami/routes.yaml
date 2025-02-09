@@ -2,14 +2,14 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: whoami-hostname
+  name: whoami-hostname-cilium
 spec:
   parentRefs:
     - name: cilium-gateway
       namespace: kube-system
       sectionName: https-xmple-io
   hostnames:
-    - whoami.xmple.io
+    - whoami-cilium-gateway.xmple.io
   rules:
     - matches:
         - path:
@@ -23,7 +23,7 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: whoami-subpath
+  name: whoami-subpath-traefik
 spec:
   parentRefs:
     - name: traefik-gateway

@@ -6,6 +6,7 @@ labels:
       app.kubernetes.io/part-of: whoami
 resources:
   - deployment.yaml
+  - certificate.yaml
   - service.yaml
   - routes.yaml
   - ingress.yaml
