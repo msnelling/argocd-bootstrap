@@ -8,11 +8,17 @@ metadata:
   annotations:
 spec:
   ingressClassName: cilium
-  defaultBackend:
-    service:
-      name: whoami
-      port:
-        number: 80
+  rules:
+    - host: whoami-cilium-ingress.xmple.io
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: whoami
+                port:
+                  number: 80
   tls:
     - secretName: whoami-tls
       hosts:

@@ -30,12 +30,20 @@ spec:
       namespace: traefik
       sectionName: https-xmple-io
   hostnames:
-    - infra.xmple.io
+    - whoami-traefik-gateway.xmple.io
   rules:
     - matches:
         - path:
             type: PathPrefix
-            value: /whoami
+            value: /
+      backendRefs:
+        - name: whoami
+          port: 80
+          kind: Service
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /auth
       backendRefs:
         - name: whoami
           port: 80
