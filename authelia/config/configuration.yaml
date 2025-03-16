@@ -50,13 +50,13 @@ privacy_policy:
 access_control:
   default_policy: deny
   rules:
-    - domain: "*.xmple.io"
+    - domain: '*.xmple.io'
       subject: group:admin
       policy: two_factor
 
     - domain: db3000.xmple.io
       subject: group:db3000
-      policy: two_factor
+      policy: one_factor
 
 session:
   secret: 'supplied by vault'
