@@ -16,6 +16,7 @@ totp:
 
 webauthn:
   disable: false
+  enable_passkey_login: true
   display_name: 'Authelia'
 
 identity_validation:
