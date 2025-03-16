@@ -58,6 +58,10 @@ access_control:
       subject: group:db3000
       policy: one_factor
 
+    - domain: '*.xmple.io'
+      subject: group:admin
+      policy: two_factor
+
 session:
   secret: 'supplied by vault'
   cookies:
