@@ -50,8 +50,6 @@ privacy_policy:
 access_control:
   default_policy: deny
   rules:
-    - domain: db3000.xmple.io/audiobookshelf
-      policy: bypass
     - domain: db3000.xmple.io
       subject: group:db3000
       policy: one_factor
