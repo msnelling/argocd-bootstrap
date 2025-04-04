@@ -1,3 +1,6 @@
+image:
+  tag: v3.3.5
+
 logs:
   general:
     level: INFO
