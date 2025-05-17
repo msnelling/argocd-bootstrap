@@ -1,0 +1,84 @@
+pod:
+  env:
+    - name: AUTHELIA_NOTIFIER_SMTP_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: authelia-secrets
+          key: notifier.smtp.username.txt
+  extraVolumes:
+    - name: users
+      configMap:
+        name: authelia-users
+  extraVolumeMounts:
+    - name: users
+      mountPath: /config/users_database.yml
+      subPath: users.yaml
+      
+rbac:
+  enabled: true
+
+configMap:
+  theme: dark
+
+  log:
+    level: info
+
+  telemetry:
+    metrics:
+      enabled: false
+
+  totp:
+    disable: false
+
+  webauthn:
+    disable: false
+  
+#  identity_validation:
+#    reset_password:
+#      secret:
+#        secret_name: authelia-secrets
+
+  authentication_backend:
+    password_reset:
+      disable: true
+    file:
+      enabled: true
+
+  access_control:
+    secret:
+      enabled: true
+
+  session:
+    same_site: lax
+    inactivity: 5m
+    expiration: 1h
+    remember_me: 1 month
+    cookies:
+      - subdomain: auth-test
+        domain: xmple.io
+        default_redirection_url: https://home.xmple.io
+    redis:
+      enabled: true
+      deploy: true
+      host: authelia-test-redis-master.authelia-test.svc.cluster.local
+      password:
+        disabled: true
+
+  storage:
+    postgres:
+      enabled: true
+      deploy: false
+      address: tcp://10.1.1.30:5432
+      database: authelia_test
+      username: authelia
+
+  notifier:
+    smtp:
+      enabled: true
+      address: submission://smtp.mail.me.com:587
+      sender: 'Authelia <noreply@xmple.io>'
+      subject: '[Authelia] {title}'
+      username: 'supplied by vault'
+
+secret:
+  existingSecret: authelia-secrets

@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: authelia-tls
+  labels:
+    app.kubernetes.io/name: authelia
+spec:
+  secretName: authelia-tls
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+    rotationPolicy: Always
+  dnsNames:
+    - auth-test.xmple.io
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
