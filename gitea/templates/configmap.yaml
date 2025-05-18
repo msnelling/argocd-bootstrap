@@ -21,3 +21,11 @@ data:
     FROM="Gitea" <noreply@xmple.io>
   ssh.minimum_key_sizes: |
     RSA=2048
+  actions: |
+    ENABLED=true
+    DEFAULT_ACTIONS_URL=github
+    STORAGE_TYPE=minio
+    LOG_RETENTION_DAYS=30
+    ARTIFACT_RETENTION_DAYS=30
+  storage_minio: |
+    MINIO_ENDPOINT=s3.xmple.io:9001
