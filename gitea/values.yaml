@@ -38,5 +38,8 @@ gitea:
   postgresql-ha:
     enabled: false
 
+  valkey-cluster:
+    enabled: false
+
   valkey:
     enabled: true
