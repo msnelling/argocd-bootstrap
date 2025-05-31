@@ -42,5 +42,6 @@ gitea:
     enabled: true
     global:
       defaultStorageClass: longhorn-gitea
-    persistence:
-      size: 1Gi
+    primary:
+      persistence:
+        size: 1Gi
