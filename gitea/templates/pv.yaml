@@ -4,7 +4,7 @@ kind: StorageClass
 metadata:
   name: longhorn-gitea
 provisioner: driver.longhorn.io
-reclaimPolicy: Retian
+reclaimPolicy: Retain
 volumeBindingMode: Immediate
 allowVolumeExpansion: true
 parameters:
