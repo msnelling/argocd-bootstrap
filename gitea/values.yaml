@@ -40,3 +40,7 @@ gitea:
 
   valkey:
     enabled: true
+    global:
+      defaultStorageClass: longhorn-gitea
+    persistence:
+      size: 1Gi
