@@ -17,6 +17,6 @@ spec:
             type: PathPrefix
             value: /grafana
       backendRefs:
-        - name: lgtm-distributed-grafana
+        - name: monitoring-grafana
           port: 80
           kind: Service
