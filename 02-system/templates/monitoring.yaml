@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-grafana-lgtm
+  namespace: argocd
+spec:
+  project: system
+  destination:
+    namespace: monitoring
+    server: {{ .Values.spec.destination.server }}
+  source:
+    path: monitoring
+    repoURL: {{ .Values.spec.source.repoURL }}
+    targetRevision: {{ .Values.spec.source.targetRevision }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+#    managedNamespaceMetadata:
+#      labels:
+#         pod-security.kubernetes.io/enforce: privileged
+    syncOptions:
+      - CreateNamespace=true
+#      - ApplyOutOfSyncOnly=true
+#      - ServerSideApply=true
