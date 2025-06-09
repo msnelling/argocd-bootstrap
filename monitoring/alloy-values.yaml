@@ -20,7 +20,7 @@ alloy:
         format = "logfmt"
       }
 
-      # Discover all pods and nodes in the cluster
+      // Discover all pods and nodes in the cluster
       discovery.kubernetes "pods" {
         role = "pod"
       }
@@ -28,18 +28,18 @@ alloy:
         role = "node"
       }
 
-      # Relabel to filter pods that have prometheus annotations for metrics scraping
+      // Relabel to filter pods that have prometheus annotations for metrics scraping
       discovery.relabel "metrics" {
         targets = discovery.kubernetes.pods.targets
         rule {
           source_labels = ["__meta_kubernetes_pod_annotation_prometheus_io_port"]
           target_label  = "__meta_kubernetes_pod_container_port_number"
-          action = "keepequal"         # keep pods where there's a port matching the prometheus scrape port annotation
+          action = "keepequal"         // keep pods where there's a port matching the prometheus scrape port annotation
         }
         rule {
           source_labels = ["__meta_kubernetes_pod_container_port_number"]
           regex = ""
-          action = "drop"             # drop any target that doesn't have a port (i.e., no prometheus_io_port annotation)
+          action = "drop"             // drop any target that doesn't have a port (i.e., no prometheus_io_port annotation)
         }
         rule {
           source_labels = ["__meta_kubernetes_pod_annotation_prometheus_io_path"]
@@ -49,7 +49,7 @@ alloy:
         }
       }
 
-      # Metrics scrape: scrape metrics from annotated pod endpoints
+      // Metrics scrape: scrape metrics from annotated pod endpoints
       prometheus.scrape "metrics" {
         targets    = discovery.relabel.metrics.output
         scrape_interval = "30s"
@@ -57,7 +57,7 @@ alloy:
         forward_to = [ prometheus.remote_write.metrics.receiver ]
       }
 
-      # Scrape node (kubelet/cAdvisor) metrics for all nodes
+      // Scrape node (kubelet/cAdvisor) metrics for all nodes
       discovery.relabel "pods_metrics" {
         targets = discovery.kubernetes.nodes.targets
         rule {
@@ -85,7 +85,7 @@ alloy:
         forward_to = [ prometheus.remote_write.metrics.receiver ]
       }
 
-      # Collect host OS metrics (node OS metrics via built-in exporter)
+      // Collect host OS metrics (node OS metrics via built-in exporter)
       prometheus.exporter.unix "node_os" {}
       prometheus.scrape "os_metrics" {
         targets    = prometheus.exporter.unix.node_os.targets
@@ -93,50 +93,50 @@ alloy:
         forward_to = [ prometheus.remote_write.metrics.receiver ]
       }
 
-      # Remote write exporter for metrics – sends to Grafana Mimir (Prometheus remote-write API)
+      // Remote write exporter for metrics – sends to Grafana Mimir (Prometheus remote-write API)
       prometheus.remote_write "metrics" {
         endpoint {
           url = "http://mimir-nginx.monitoring.svc.cluster.local/api/v1/push"
         }
       }
 
-      # Log collection: use Kubernetes integration to read pod logs
+      // Log collection: use Kubernetes integration to read pod logs
       loki.source.kubernetes "pods" {
         targets    = discovery.kubernetes.pods.targets
         forward_to = [ loki.process.batch.receiver ]
       }
-      # Process logs: example pipeline to parse JSON logs and extract level
+      // Process logs: example pipeline to parse JSON logs and extract level
       loki.process "batch" {
         batch {
-          # optional: buffer a batch of logs before processing (improves throughput)
+          // optional: buffer a batch of logs before processing (improves throughput)
           idle_timeout = "1s"
           size = 100
         }
-        # Drop very old logs (already an hour old) - to avoid backlog on start
+        // Drop very old logs (already an hour old) - to avoid backlog on start
         stage.drop {
           older_than = "1h"
           drop_counter_reason = "too_old"
         }
         stage.json {
-          expressions = { level = "level" }   # parse JSON field "level"
-          # (Add other fields as needed)
+          expressions = { level = "level" }   // parse JSON field "level"
+          // (Add other fields as needed)
         }
         stage.labels {
-          values = { level = "level" }        # promote log level to a label
+          values = { level = "level" }        // promote log level to a label
         }
         stage.label_drop {
-          values = [ "pod", "namespace" ]     # (just an example, drop any unwanted labels)
+          values = [ "pod", "namespace" ]     // (just an example, drop any unwanted labels)
         }
         forward_to = [ loki.write.loki.receiver ]
       }
-      # Send logs to Loki
+      // Send logs to Loki
       loki.write "loki" {
         endpoint {
           url = "http://loki-write.monitoring.svc.cluster.local:3100/loki/api/v1/push"
         }
       }
 
-      # Trace collection: receive spans via OpenTelemetry (OTLP) and OpenCensus
+      // Trace collection: receive spans via OpenTelemetry (OTLP) and OpenCensus
       otelcol.receiver.otlp "traces" {
         protocols {
           grpc {
@@ -153,7 +153,7 @@ alloy:
         transport = "tcp"
         output { traces = [ otelcol.processor.batch.traces.input ] }
       }
-      # Add a resource attribute to traces (e.g., cluster name) for identification
+      // Add a resource attribute to traces (e.g., cluster name) for identification
       otelcol.processor.attributes "traces" {
         action {
           key = "cluster_name"
@@ -168,7 +168,7 @@ alloy:
         }
         output { traces = [ otelcol.exporter.otlp.traces.input ] }
       }
-      # Export traces to Tempo (via OTLP)
+      // Export traces to Tempo (via OTLP)
       otelcol.exporter.otlp "traces" {
         client {
           endpoint = "tempo.monitoring.svc.cluster.local:4317"
