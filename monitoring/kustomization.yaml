@@ -12,7 +12,7 @@ helmCharts:
     version: 2.1.0
     #includeCRDs: true
     namespace: monitoring
-    valuesFile: values.yaml
+    valuesFile: lgtm-values.yaml
 
   - name: alloy
     repo: https://grafana.github.io/helm-charts
@@ -20,4 +20,4 @@ helmCharts:
     version: 1.1.1
     #includeCRDs: true
     namespace: monitoring
-    #valuesFile: values.yaml
+    valuesFile: alloy-values.yaml
