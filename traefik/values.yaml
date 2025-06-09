@@ -61,11 +61,3 @@ tracing:
       enabled: true
       endpoint: monitoring-alloy.monitoring.svc.cluster.local:4317"
       insecure: true
-
-metrics:
-  otlp:
-    enabled: true
-    grpc:
-      enabled: true
-      endpoint: monitoring-alloy.monitoring.svc.cluster.local:4317
-      insecure: true
