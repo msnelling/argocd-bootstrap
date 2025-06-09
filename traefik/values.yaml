@@ -53,11 +53,11 @@ certificatesResolvers:
   tailscale-resolver:
     tailscale: {}
 
-#tracing:
+tracing:
 #  addInternals: true
-#  otlp:
-#    enabled: true
-#    grpc:
-#      enabled: true
-#      endpoint: monitoring-alloy.monitoring.svc.cluster.local:4317"
-#      insecure: true
+  otlp:
+    enabled: true
+    grpc:
+      enabled: true
+      endpoint: monitoring-alloy.monitoring.svc.cluster.local:4317"
+      insecure: true
