@@ -2,13 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: monitoring
-#resources:
-#  - resources/httproute.yaml
+resources:
+  - resources/httproute.yaml
 
 helmCharts:
   - name: lgtm-distributed
     repo: https://grafana.github.io/helm-charts
-    releaseName: lgtm-distributed
+    releaseName: monitoring
     version: 2.1.0
     #includeCRDs: true
     namespace: monitoring
@@ -16,7 +16,7 @@ helmCharts:
 
   - name: alloy
     repo: https://grafana.github.io/helm-charts
-    releaseName: grafana-alloy
+    releaseName: monitoring
     version: 1.1.1
     #includeCRDs: true
     namespace: monitoring
