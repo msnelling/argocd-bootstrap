@@ -107,11 +107,6 @@ alloy:
       }
       // Process logs: example pipeline to parse JSON logs and extract level
       loki.process "batch" {
-        batch {
-          // optional: buffer a batch of logs before processing (improves throughput)
-          idle_timeout = "1s"
-          size = 100
-        }
         // Drop very old logs (already an hour old) - to avoid backlog on start
         stage.drop {
           older_than = "1h"
@@ -138,13 +133,11 @@ alloy:
 
       // Trace collection: receive spans via OpenTelemetry (OTLP) and OpenCensus
       otelcol.receiver.otlp "traces" {
-        protocols {
-          grpc {
-            endpoint = "0.0.0.0:4317"
-          }
-          http {
-            endpoint = "0.0.0.0:4318"
-          }
+        grpc {
+          endpoint = "0.0.0.0:4317"
+        }
+        http {
+          endpoint = "0.0.0.0:4318"
         }
         output { traces = [ otelcol.processor.attributes.traces.input ] }
       }
@@ -163,9 +156,7 @@ alloy:
         output { traces = [ otelcol.processor.batch.traces.input ] }
       }
       otelcol.processor.batch "traces" {
-        batch {
-          timeout = "1s"
-        }
+        timeout = "1s"
         output { traces = [ otelcol.exporter.otlp.traces.input ] }
       }
       // Export traces to Tempo (via OTLP)
