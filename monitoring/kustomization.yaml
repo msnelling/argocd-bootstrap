@@ -13,3 +13,11 @@ helmCharts:
     #includeCRDs: true
     namespace: monitoring
     valuesFile: values.yaml
+
+  - name: grafana-alloy
+    repo: https://grafana.github.io/helm-charts
+    releaseName: grafana-alloy
+    version: 1.1.1
+    #includeCRDs: true
+    namespace: monitoring
+    #valuesFile: values.yaml

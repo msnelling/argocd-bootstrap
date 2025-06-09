@@ -9,6 +9,7 @@ spec:
   description: System Project
   sourceRepos:
     - {{ .Values.spec.source.repoURL }}
+    - https://grafana.github.io/helm-charts
     - https://prometheus-community.github.io/helm-charts
   destinations:
     - namespace: '*'
