@@ -55,7 +55,7 @@ certificatesResolvers:
 
 tracing:
   addInternals: true
-  oltp:
+  otlp:
     enabled: true
     grpc:
       enabled: true
@@ -63,7 +63,7 @@ tracing:
       insecure: true
 
 metrics:
-  oltp:
+  otlp:
     enabled: true
     grpc:
       enabled: true
