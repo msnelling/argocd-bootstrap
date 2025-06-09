@@ -127,7 +127,7 @@ alloy:
       // Send logs to Loki
       loki.write "loki" {
         endpoint {
-          url = "http://{{ .Release.Name }}-loki-ingester.monitoring.svc.cluster.local:3100/loki/api/v1/push"
+          url = "http://{{ .Release.Name }}-loki-distributor.monitoring.svc.cluster.local:3100/loki/api/v1/push"
         }
       }
 
