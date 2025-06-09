@@ -1,10 +1,6 @@
-replicas: 1
-# Use DaemonSet for logs if needed: set deploymentStrategy or use kind: DaemonSet (not shown here for brevity)
 alloy:
-  clustering:
-    enabled: true   # enable internal clustering (needed for HA/replicas coordination)
   extraPorts:
-    - name: otel-otlp-grpc    # open port for OTLP gRPC (traces)
+    - name: otel-otlp-grpc
       port: 4317
       targetPort: 4317
     - name: otel-otlp-http
