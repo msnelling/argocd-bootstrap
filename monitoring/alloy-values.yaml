@@ -156,7 +156,7 @@ alloy:
           value = "homelab-cluster"
           action = "insert"
         }
-        output { traces = [ otelcol.processor.resource.k8s.input ] }
+        output { traces = [ otelcol.processor.resource.k8s ] }
       }
 
       // Enrich traces with Kubernetes resource attributes
