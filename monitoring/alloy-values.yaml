@@ -46,7 +46,7 @@ alloy:
         targets    = discovery.relabel.metrics.output
         scrape_interval = "30s"
         honor_labels = true
-        forward_to = [ prometheus.remote_write.metrics.receiver ]
+        forward_to = [ prometheus.remote_write.default.receiver ]
       }
 
       // Scrape node (kubelet/cAdvisor) metrics for all nodes
@@ -74,7 +74,7 @@ alloy:
           insecure_skip_verify = true
           server_name = "kubernetes"
         }
-        forward_to = [ prometheus.remote_write.metrics.receiver ]
+        forward_to = [ prometheus.remote_write.default.receiver ]
       }
 
       // Collect host OS metrics (node OS metrics via built-in exporter)
@@ -82,11 +82,11 @@ alloy:
       prometheus.scrape "os_metrics" {
         targets    = prometheus.exporter.unix.node_os.targets
         scrape_interval = "30s"
-        forward_to = [ prometheus.remote_write.metrics.receiver ]
+        forward_to = [ prometheus.remote_write.default.receiver ]
       }
 
-      // Remote write exporter for metrics – sends to Grafana Mimir (Prometheus remote-write API)
-      prometheus.remote_write "metrics" {
+      // Remote write exporter for metrics, sends to Grafana Mimir (Prometheus remote-write API)
+      prometheus.remote_write "default" {
         endpoint {
           url = "http://{{ .Release.Name }}-mimir-nginx.monitoring.svc.cluster.local/api/v1/push"
         }
@@ -115,41 +115,53 @@ alloy:
         stage.label_drop {
           values = [ "pod", "namespace" ]     // (just an example, drop any unwanted labels)
         }
-        forward_to = [ loki.write.loki.receiver ]
+        forward_to = [ loki.write.default.receiver ]
       }
 
       // Send logs to Loki
-      loki.write "loki" {
+      loki.write "default" {
         endpoint {
           url = "http://{{ .Release.Name }}-loki-distributor.monitoring.svc.cluster.local:3100/loki/api/v1/push"
         }
       }
 
       // Trace collection: receive spans via OpenTelemetry (OTLP) and OpenCensus
-      otelcol.receiver.otlp "traces" {
+      otelcol.receiver.otlp "default" {
         grpc {
           endpoint = "0.0.0.0:4317"
         }
-        output { traces = [ otelcol.processor.attributes.traces.input ] }
+        output { 
+          traces = [
+            otelcol.connector.servicegraph.default.input,
+            otelcol.processor.attributes.default.input
+          ]
+        }
+      }
+
+      otelcol.connector.servicegraph "default" {
+        dimensions = ["http.method", "http.target"]
+        output {
+          metrics = [otelcol.exporter.otlp.default.input]
+        }
       }
 
       // Add a resource attribute to traces (e.g., cluster name) for identification
-      otelcol.processor.attributes "traces" {
+      otelcol.processor.attributes "default" {
         action {
           key = "cluster_name"
           value = "homelab-cluster"
           action = "insert"
         }
-        output { traces = [ otelcol.processor.batch.traces.input ] }
+        output { traces = [ otelcol.processor.batch.default.input ] }
       }
 
-      otelcol.processor.batch "traces" {
+      otelcol.processor.batch "default" {
         timeout = "1s"
-        output { traces = [ otelcol.exporter.otlp.traces.input ] }
+        output { traces = [ otelcol.exporter.otlp.default.input ] }
       }
 
       // Export traces to Tempo (via OTLP)
-      otelcol.exporter.otlp "traces" {
+      otelcol.exporter.otlp "default" {
         client {
           endpoint = "{{ .Release.Name }}-tempo-distributor.monitoring.svc.cluster.local:4317"
           tls {
