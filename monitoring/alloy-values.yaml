@@ -151,7 +151,7 @@ alloy:
       // Export traces to Tempo (via OTLP)
       otelcol.exporter.otlp "traces" {
         client {
-          endpoint = "{{ .Release.Name }}-tempo-distributor.monitoring.svc.cluster.local:4137"
+          endpoint = "{{ .Release.Name }}-tempo-distributor.monitoring.svc.cluster.local:4317"
           tls {
             insecure = true
             insecure_skip_verify = true
