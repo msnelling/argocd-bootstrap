@@ -1,8 +1,8 @@
 grafana:
-  # -- Deploy Grafana if enabled. See [upstream readme](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration) for full values reference.
+  # Deploy Grafana if enabled. See [upstream readme](https://github.com/grafana/helm-charts/tree/main/charts/grafana#configuration) for full values reference.
   enabled: true
 
-  # -- Grafana data sources config. Connects to all three by default
+  # Grafana data sources config. Connects to all three by default
   datasources:
     datasources.yaml:
       apiVersion: 1
@@ -37,12 +37,12 @@ grafana:
               datasourceUid: prom
 
 loki:
-  # -- Deploy Loki if enabled. See [upstream readme](https://github.com/grafana/helm-charts/tree/main/charts/loki-distributed#values) for full values reference.
+  # Deploy Loki if enabled. See [upstream readme](https://github.com/grafana/helm-charts/tree/main/charts/loki-distributed#values) for full values reference.
   enabled: true
 
-# -- Mimir chart values. Resources are set to a minimum by default.
+# Mimir chart values. Resources are set to a minimum by default.
 mimir:
-  # -- Deploy Mimir if enabled. See [upstream values.yaml](https://github.com/grafana/mimir/blob/main/operations/helm/charts/mimir-distributed/values.yaml) for full values reference.
+  # Deploy Mimir if enabled. See [upstream values.yaml](https://github.com/grafana/mimir/blob/main/operations/helm/charts/mimir-distributed/values.yaml) for full values reference.
   enabled: true
   alertmanager:
     resources:
@@ -101,15 +101,17 @@ mimir:
         cpu: 20m
 
 tempo:
-  # -- Deploy Tempo if enabled.  See [upstream readme](https://github.com/grafana/helm-charts/blob/main/charts/tempo-distributed/README.md#values) for full values reference.
+  # Deploy Tempo if enabled.  See [upstream readme](https://github.com/grafana/helm-charts/blob/main/charts/tempo-distributed/README.md#values) for full values reference.
   enabled: true
   ingester:
     replicas: 1
+    config:
+      replication_factor: 1
   traces:
     otlp:
       grpc:
         enabled: true
 
 grafana-oncall:
-  # -- Deploy Grafana OnCall if enabled. See [upstream values.yaml](https://github.com/grafana/oncall/blob/dev/helm/oncall/values.yaml) for full values reference.
+  # Deploy Grafana OnCall if enabled. See [upstream values.yaml](https://github.com/grafana/oncall/blob/dev/helm/oncall/values.yaml) for full values reference.
   enabled: false
