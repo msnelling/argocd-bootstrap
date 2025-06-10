@@ -105,10 +105,8 @@ tempo:
   enabled: true
   ingester:
     replicas: 1
-  replication_factor: 1
   traces:
     otlp:
-      enabled: true
       grpc:
         enabled: true
 
