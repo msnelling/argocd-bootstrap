@@ -109,6 +109,7 @@ tempo:
       replication_factor: 1
   traces:
     otlp:
+      enabled: true
       grpc:
         enabled: true
 
