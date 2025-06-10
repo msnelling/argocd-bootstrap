@@ -133,7 +133,7 @@ alloy:
         output { 
           traces = [
             otelcol.connector.servicegraph.default.input,
-            otelcol.processor.attributes.default.input
+            otelcol.processor.attributes.default.input,
           ]
         }
       }
