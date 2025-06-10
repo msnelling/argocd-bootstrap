@@ -109,10 +109,6 @@ alloy:
           expressions = { level = "level" }   // parse JSON field "level"
           // (Add other fields as needed)
         }
-        stage.replace {
-          values = { level = "(?i)info" }
-          replacement = "info"
-        }
         stage.labels {
           values = { level = "level" }        // promote log level to a label
         }
