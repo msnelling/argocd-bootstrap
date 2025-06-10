@@ -98,15 +98,12 @@ alloy:
         forward_to = [ loki.process.batch.receiver ]
       }
       
-      // Process logs: enrich with Kubernetes metadata, parse JSON logs, extract level
+      // Process logs: example pipeline to parse JSON logs and extract level
       loki.process "batch" {
         // Drop very old logs (already an hour old) - to avoid backlog on start
         stage.drop {
           older_than = "1h"
           drop_counter_reason = "too_old"
-        }
-        stage.kubernetes {
-          // Enrich logs with Kubernetes metadata (namespace, pod, container, labels, etc)
         }
         stage.json {
           expressions = { level = "level" }   // parse JSON field "level"
@@ -155,14 +152,6 @@ alloy:
           key = "cluster_name"
           value = "homelab-cluster"
           action = "insert"
-        }
-        output { traces = [ otelcol.processor.resource.k8s ] }
-      }
-
-      // Enrich traces with Kubernetes resource attributes
-      otelcol.processor.resource "k8s" {
-        attributes {
-          from_k8s = true
         }
         output { traces = [ otelcol.processor.batch.default.input ] }
       }
