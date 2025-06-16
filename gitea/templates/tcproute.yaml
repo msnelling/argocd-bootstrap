@@ -11,7 +11,7 @@ spec:
       namespace: traefik
       sectionName: tcp-ssh
   rules:
-      backendRefs:
+    - backendRefs:
         - name: gitea-ssh
           port: 22
           kind: Service
