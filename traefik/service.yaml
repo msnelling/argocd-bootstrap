@@ -15,4 +15,8 @@ spec:
       port: 443
       targetPort: 8443
       protocol: TCP
+    - name: ssh
+      port: 22
+      targetPort: 8022
+      protocol: TCP
   type: LoadBalancer
