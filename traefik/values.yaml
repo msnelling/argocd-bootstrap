@@ -22,10 +22,6 @@ ports:
     exposedPort: 22
     protocol: TCP
 
-experimental:
-  kubernetesGateway:
-    enabled: true
-
 gateway:
   # Deploy a default gateway
   enabled: false
@@ -46,7 +42,7 @@ providers:
     enabled: true
   kubernetesGateway:
     enabled: true
-    experimentalChannel: false
+    experimentalChannel: true
 
 certificatesResolvers:
   tailscale-resolver:
