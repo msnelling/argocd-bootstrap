@@ -15,20 +15,15 @@ ports:
       enabled: true
     tls:
       enabled: true
-  gitlab-ssh: 
-    port: 50022
+  ssh:
+    port: 22
     expose:
       default: true
-    exposedPort: 50022
-    protocol: TCP
-  gitaly-ssh:
-    port: 51022
-    expose:
-      default: true
-    exposedPort: 51022
+    exposedPort: 22
     protocol: TCP
 
 gateway:
+  # Deploy a default gateway
   enabled: false
 
 service:
