@@ -24,3 +24,9 @@ spec:
           - group: ''	
             kind: Secret	
             name: xmple-io-tls
+    - name: tcp-ssh
+      port: 22
+      protocol: TCP
+      allowedRoutes:
+        kinds:
+          - kind: TCPRoute
