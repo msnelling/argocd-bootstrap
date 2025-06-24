@@ -10,7 +10,7 @@ data:
   service: |
     DISABLE_REGISTRATION=true
   migrations: |
-    ALLOWED_DOMAINS=*.xmple.io
+    ALLOWED_DOMAINS=github.com
   oauth2_client: |
     ACCOUNT_LINKING=login
   mailer: |
