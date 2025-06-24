@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-monitoring
+  name: prometheus
   namespace: argocd
 spec:
   project: system
@@ -9,13 +9,13 @@ spec:
     namespace: monitoring
     server: {{ .Values.spec.destination.server }}
   source:
-    path: monitoring
+    path: prometheus
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated:
       prune: true
-      selfHeal: false
+      selfHeal: true
 #    managedNamespaceMetadata:
 #      labels:
 #         pod-security.kubernetes.io/enforce: privileged
