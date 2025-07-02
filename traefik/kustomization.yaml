@@ -12,7 +12,7 @@ helmCharts:
     version:  1.9.0
     includeCRDs: true
     valuesInline:
-      gatewayAPI: true
+      gatewayAPI: false
       hub: false
       traefik: true
   - name: traefik
