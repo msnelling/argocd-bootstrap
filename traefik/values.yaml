@@ -51,7 +51,7 @@ certificatesResolvers:
 tracing:
   addInternals: true
   otlp:
-    enabled: true
+    enabled: false
     grpc:
       enabled: true
       endpoint: monitoring-alloy.monitoring.svc.cluster.local:4317
