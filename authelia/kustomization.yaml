@@ -15,7 +15,7 @@ resources:
   - deployment.yaml
   - service.yaml
   #- pv.yaml
-  - certificate.yaml
+  #- certificate.yaml
   #- ingress.yaml
   - httproute.yaml
 configMapGenerator:
