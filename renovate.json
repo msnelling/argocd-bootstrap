@@ -7,5 +7,11 @@
     "fileMatch": [
       "01-bootstrap/templates/.+\\.yaml$"
     ]
-  }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["argocd"],
+      "allowedVersions": "<3.0.7 || >3.0.9"
+    }
+  ]
 }
