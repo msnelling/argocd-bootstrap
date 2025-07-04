@@ -10,7 +10,7 @@
   },
   "packageRules": [
     {
-      "matchPackageNames": ["argocd"],
+      "matchPackageNames": ["argoproj/argo-cd"],
       "allowedVersions": "<3.0.7 || >3.0.9"
     }
   ]
