@@ -16,7 +16,6 @@ spec:
     targetRevision: {{ .Values.spec.source.targetRevision }}
   syncPolicy:
     automated:
-      enable: true
       prune: true
       selfHeal: true
     retry:
