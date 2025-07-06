@@ -23,11 +23,13 @@ spec:
         - operator: "Exists"
           effect: "NoSchedule"
       containers:
-        - image: squat/generic-device-plugin
+        - image: squat/generic-device-plugin:latest@sha256:d7d0951df7f11479185fd9fba1c1cb4d9c8f3232d38a5468d6fe80074f2b45d5
           args:
+            - --domain
+            - generic.device
             - --device
             - |
-              name: tun
+              name: dev-net-tun
               groups:
                 - count: 1000
                   paths:
@@ -41,8 +43,8 @@ spec:
               cpu: 50m
               memory: 20Mi
           ports:
-          - containerPort: 8080
-            name: http
+            - containerPort: 8080
+              name: http
           securityContext:
             privileged: true
           volumeMounts:
