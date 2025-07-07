@@ -8,7 +8,7 @@ spec:
       tailscaleContainer:
         resources:
           limits:
-            squat.ai/tun: "1"
+            generic.device/dev-net-tun: "1"
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
