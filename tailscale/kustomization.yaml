@@ -11,7 +11,6 @@ helmCharts:
     version: 1.84.3
     releaseName: tailscale-operator
     repo: https://pkgs.tailscale.com/helmcharts
-    valuesFile: values.yaml
 resources:
   - secret-store.yaml
   - external-secrets.yaml
