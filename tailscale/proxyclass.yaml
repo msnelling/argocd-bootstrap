@@ -16,3 +16,4 @@ spec:
               - ALL
             add:
               - NET_ADMIN
+              - NET_RAW
