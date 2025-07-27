@@ -3,7 +3,7 @@ image:
 
 logs:
   general:
-    level: DEBUG
+    level: INFO
   access:
     enabled: false
     
