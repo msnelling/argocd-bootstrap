@@ -31,3 +31,5 @@ spec:
         kinds:
           - group: gateway.networking.k8s.io
             kind: TCPRoute
+        namespaces:
+          from: All
