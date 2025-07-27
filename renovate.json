@@ -7,11 +7,5 @@
     "fileMatch": [
       "01-bootstrap/templates/.+\\.yaml$"
     ]
-  },
-  "packageRules": [
-    {
-      "matchPackageNames": ["argoproj/argo-cd"],
-      "allowedVersions": "<3.0.7 || >3.0.9"
-    }
-  ]
+  }
 }
