@@ -30,7 +30,6 @@ metadata:
   name: whoami-traefik
   labels:
     app.kubernetes.io/name: whoami
-  annotations:
 spec:
   ingressClassName: traefik
   rules:
