@@ -1,28 +1,28 @@
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: whoami-cilium
-  labels:
-    app.kubernetes.io/name: whoami
-  annotations:
-spec:
-  ingressClassName: cilium
-  rules:
-    - host: whoami-cilium-ingress.xmple.io
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: whoami
-                port:
-                  number: 80
-  tls:
-    - secretName: whoami-tls
-      hosts:
-        - whoami-cilium-ingress.xmple.io
+#---
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  name: whoami-cilium
+#  labels:
+#    app.kubernetes.io/name: whoami
+#  annotations:
+#spec:
+#  ingressClassName: cilium
+#  rules:
+#    - host: whoami-cilium-ingress.xmple.io
+#      http:
+#        paths:
+#          - pathType: Prefix
+#            path: "/"
+#            backend:
+#              service:
+#                name: whoami
+#                port:
+#                  number: 80
+#  tls:
+#    - secretName: whoami-tls
+#      hosts:
+#        - whoami-cilium-ingress.xmple.io
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
