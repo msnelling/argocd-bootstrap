@@ -4,3 +4,6 @@ spec:
   source:
     repoURL: https://github.com/msnelling/argocd-bootstrap.git
     targetRevision: HEAD
+  values:
+    vault:
+      externalVaultAddr: https://vault.example.com:8200

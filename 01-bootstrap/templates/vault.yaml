@@ -3,12 +3,12 @@ kind: Application
 metadata:
   name: vault
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: bootstrap
-  syncPolicy:
-    automated: {}
   destination:
     namespace: vault
     server: {{ .Values.spec.destination.server }}
@@ -22,11 +22,13 @@ spec:
           enabled: false
         injector:
           enabled: true
-          externalVaultAddr: https://vault.xmple.io:8200
+          externalVaultAddr: {{ .Values.spec.values.vault.externalVaultAddr | quote }}
         csi:
           enabled: true
           debug: true
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - CreateNamespace=true
