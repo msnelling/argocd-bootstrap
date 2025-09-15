@@ -7,7 +7,7 @@ labels:
       app.kubernetes.io/managed-by: ArgoCD
 images:
   - name: docker.io/authelia/authelia
-    newTag: 4.39.9
+    newTag: 4.39.10
 resources:
   - redis
   - secret-store.yaml
