@@ -6,7 +6,7 @@ labels:
       app.kubernetes.io/part-of: cloudflare-tunnel
 images:
   - name: docker.io/cloudflare/cloudflared
-    newTag: 2026.1.1
+    newTag: 2026.1.2
 resources:
   - secret-store.yaml
   - secrets.yaml
