@@ -11,7 +11,8 @@ data:
         "msnelling/argocd-db3000",
         "msnelling/gitops-teslamate",
         "msnelling/dns",
-        "msnelling/minecraft"
+        "msnelling/minecraft",
+        "xmple/talos-cluster"
       ],
       "timezone": "Europe/London",
       "labels": ["renovate"],
